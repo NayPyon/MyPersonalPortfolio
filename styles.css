@@ -4,6 +4,7 @@
 =====================================================
   
   📋 DAFTAR ISI:
+  0. CSS Variables (Tema Warna)
   1. Reset & Base Styles
   2. Navigation Bar
   3. Hero Section
@@ -31,6 +32,46 @@
   
 =====================================================
 */
+
+/* ===================================
+   0. CSS VARIABLES (TEMA WARNA)
+   =================================== 
+   
+   PENJELASAN:
+   - Variabel CSS untuk tema warna global
+   - Memudahkan penggantian warna di satu tempat
+   - Digunakan dengan var(--nama-variabel)
+   
+   INSTRUKSI KUSTOMISASI:
+   - Ganti nilai warna di sini untuk mengubah tema keseluruhan
+   - Nilai warna bisa format HEX (#3498db) atau RGB/RGBA
+   - Variabel ini digunakan di berbagai section
+   
+   TIPS:
+   - Primary color: Warna utama brand/tema
+   - Secondary color: Warna aksen/gradasi dari primary
+   - Text color: Warna untuk judul dan teks penting
+   - Body color: Warna teks paragraf normal
+*/
+
+:root {
+  /* INSTRUKSI: Warna Utama - Ganti sesuai brand/tema Anda */
+  --primary-color: #3498db;     /* Warna utama (biru) - digunakan untuk button, link, aksen */
+  --secondary-color: #2980b9;   /* Gradasi/aksen untuk primary - digunakan untuk hover, gradient */
+  
+  /* INSTRUKSI: Warna Teks */
+  --text-color: #2c3e50;        /* Warna judul dan heading (gelap) */
+  --body-color: #333;           /* Warna teks paragraf normal */
+  --muted-color: #666;          /* Warna teks sekunder/kurang penting */
+  
+  /* INSTRUKSI: Warna Background */
+  --light-bg: #f8f9fa;          /* Background section terang (alternating) */
+  --white-bg: #ffffff;          /* Background putih */
+  
+  /* INSTRUKSI: Gradient untuk Hero Section */
+  --hero-start: #667eea;        /* Gradient hero awal (ungu-biru) */
+  --hero-end: #764ba2;          /* Gradient hero akhir (ungu) */
+}
 
 /* ===================================
    1. RESET DAN BASE STYLES
