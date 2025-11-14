@@ -1,77 +1,52 @@
-# 🚀 Cara Clone Repository
+# Personal Portfolio Website
 
-Panduan singkat untuk mendapatkan project **TemplateWebsiteCV** ke komputer kamu.
+![Project Screenshot](assets/web%20(1).png)
 
----
+This is my personal portfolio website, built from scratch to showcase my projects, skills, and professional background. It is designed to be dynamic, responsive, and easy to update.
 
-## 🧩 Clone via Git (Disarankan)
-
-Jika kamu sudah memiliki **Git** di komputer, ikuti langkah berikut:
-
-```bash
-# Clone repository ke komputer kamu
-git clone https://github.com/jhopan/TemplateWebsiteCV.git
-
-# Masuk ke folder project
-cd TemplateWebsiteCV
-```
-
-**💡 Catatan:**  
-Jika muncul pesan error seperti:
-
-```
-'git' is not recognized as an internal or external command
-```
-
-berarti Git belum terinstal di komputer kamu.
+**[View Live Demo](https://NayPyon.github.io)**
 
 ---
 
-## ⚙️ Instal Git (Jika Belum Ada)
+## 🚀 Key Features
 
-1. Buka situs resmi Git: https://git-scm.com/downloads
-2. Pilih versi sesuai sistem operasi kamu (Windows / macOS / Linux)
-3. Jalankan installer dan biarkan pengaturan default
-4. Setelah selesai, buka terminal dan ketik:
-   ```bash
-   git --version
-   ```
-   Jika muncul versi Git (contoh: `git version 2.45.0`), berarti instalasi berhasil ✅
+* **Fully Responsive:** A mobile-first design that looks great on all screen sizes, from phones to desktops.
+* **Dark/Light Mode:** A theme switcher that saves user preference in `localStorage`.
+* **Dynamic Project Loading:** The portfolio section is dynamically loaded from a `projects.json` file using the `fetch` API, making it easy to update.
+* **Dual Lightbox System:**
+    * An advanced portfolio lightbox with a multi-image gallery slider.
+    * A separate lightbox for displaying certificates and achievements.
+* **Performant Animations:** Uses the `IntersectionObserver` API to animate elements on scroll, ensuring smooth performance.
+* **Vanilla JS:** Built purely with JavaScript (ES6+), with no external libraries like jQuery, for fast loading.
+* **Working Contact Form:** Integrated with Formspree for functional form submission.
 
----
+## 🛠️ Technologies Used
 
-## 🛠️ Konfigurasi Git (Langkah Awal, Sekali Saja)
+* **HTML5:** (Semantic Structure)
+* **CSS3:** (Flexbox, Grid, CSS Variables, Animations)
+* **JavaScript (ES6+):** (Fetch API, Intersection Observer, DOM Manipulation)
+* **JSON:** (For dynamic project data)
+* **Font Awesome:** (For icons)
+* **Formspree:** (For the contact form backend)
 
-Sebelum menggunakan Git untuk commit atau push, atur identitas kamu:
+## ⚙️ Getting Started
 
-```bash
-git config --global user.name "Nama Kamu"
-git config --global user.email "emailkamu@example.com"
-```
+To run a local copy of this project:
 
----
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/NayPyon/MyPersonalPortfolio.git
+    ```
 
-## 📦 Alternatif: Download ZIP (Tanpa Git)
+2.  **Open the file:**
+    Open `index.html` in your favorite browser.
 
-Jika kamu tidak ingin install Git, kamu bisa mendownload langsung project-nya:
+3.  **Modifying Content:**
+    * Edit `index.html` for text information (About Me, Education, etc.).
+    * Edit `projects.json` to add, remove, or modify portfolio items.
 
-1. Buka repository: 👉 https://github.com/jhopan/TemplateWebsiteCV
-2. Klik tombol **Code** (warna hijau) → pilih **Download ZIP**
-3. Ekstrak file ZIP di komputer kamu
-4. Buka folder hasil ekstrak di VS Code, Sublime Text, atau editor favoritmu
+## 👤 Author
 
----
-
-## ✅ Selesai!
-
-Sekarang kamu sudah siap mengedit file berikut:
-
-- **`index.html`** → Isi data pribadi (nama, deskripsi, kontak)
-- **`styles.css`** → Ubah warna dan tampilan (opsional)
-- **`script.js`** → Sesuaikan efek dan fungsi (opsional)
-
-🎉 **Selamat! Kamu sudah berhasil mendapatkan template website portfolio dan siap dikustomisasi.**
-
----
-
-**Repository:** https://github.com/jhopan/TemplateWebsiteCV.git
+* **Nayaka Alkaesyah Suryanto**
+* **GitHub:** https://github.com/NayPyon
+* **LinkedIn:** https://www.linkedin.com/in/nayakaalkaesyahsuryanto/
