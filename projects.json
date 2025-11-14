@@ -1,0 +1,55 @@
+[
+  {
+    "id": "project1",
+    "category": "Microcontroller",
+    "imageSmall": "assets/FASE MERAH.png",
+    "galleryImages": [
+      "assets/FASE MERAH.png",
+      "assets/FASE KUNING.png",
+      "assets/FASE HIJAU.png",
+      "assets/FASE PEJALAN KAKI (MERAH INTERUPSI).png",
+      "assets/FASE PERINGATAN (KUNING INTERUPSI).png"
+    ],
+    "title": "Smart Crossing Project",
+    "descriptionCard": "An Arduino-based Smart Crossing System simulated in Proteus, featuring intelligent pedestrian interruption and audio/visual feedback.",
+    "descriptionModal": "This project is a simulation of a Smart Crossing System. This system not only runs a normal traffic light cycle but also features an intelligent interruption feature for pedestrians, complete with visual and audio feedback. The system is built using Arduino and simulated in Proteus.",
+    "tech": ["Arduino", "C++", "Proteus"],
+    "githubLink": "https://github.com/NayPyon/SmartCrossingProject.git",
+    "liveLink": "#"
+  },
+  {
+    "id": "project2",
+    "category": "Computer Vision",
+    "imageSmall": "assets/CompVis (1).png",
+    "galleryImages": [
+      "assets/CompVis (1).png",
+      "assets/CompVis (2).png",
+      "assets/CompVis (3).png",
+      "assets/CompVis (4).png"
+    ],
+    "title": "Cervical Cancer Detection with Deep Learning",
+    "descriptionCard": "Cervical Cancer Detection AI A Computer Vision application capable of classifying cervical cells into Normal, LSIL, and HSIL stages using Deep Learning. Achieved ~85% accuracy using MobileNetV2 and Transfer Learning.",
+    "descriptionModal": "Developed an AI-powered Computer Vision system to assist in early cervical cancer diagnosis by classifying microscopic Pap smear images into Normal, LSIL, and HSIL categories. Leveraging Python and TensorFlow, I implemented a Transfer Learning approach using the MobileNetV2 architecture, enhanced by Data Augmentation and Early Stopping mechanisms to prevent overfitting. This project demonstrates the practical application of deep learning in medical imaging, achieving a validation accuracy of approximately 85% on the SipakMed dataset.",
+    "tech": ["Python", "MobileNetV2", "TensorFlow", "Medical Imaging"],
+    "githubLink": "https://github.com/NayPyon/CervicalCancerDetection.git",
+    "liveLink": "#"
+  },
+  {
+    "id": "project3",
+    "category": "Web Development",
+    "imageSmall": "assets/web (1).png",
+    "galleryImages": [
+      "assets/web (1).png",
+      "assets/web (2).png",
+      "assets/web (3).png",
+      "assets/web (4).png",
+      "assets/web (5).png"
+    ],
+    "title": "Personal Portfolio Website",
+    "descriptionCard": "A responsive single-page portfolio built from scratch to showcase my skills, projects, and professional background.",
+    "descriptionModal": "Developed this personal portfolio website from scratch to serve as a dynamic hub for my professional profile. It is a fully responsive single-page application built with modern HTML, CSS, and Vanilla JavaScript (ES6+). Key features include: dynamic project loading via `fetch` from a JSON file, a theme toggle (dark/light mode) with `localStorage`, and an efficient `IntersectionObserver` to trigger on-scroll animations.",
+    "tech": ["HTML", "CSS", "JavaScript"],
+    "githubLink": "[Link GitHub Proyek CV Anda]",
+    "liveLink": "#"
+  }
+]

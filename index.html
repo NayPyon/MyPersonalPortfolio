@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- 
-      ============================================
-      INSTRUKSI: Ganti [Nama Anda] dengan nama lengkap Anda
-      Contoh: CV - John Doe
-      ============================================
-    -->
-    <title>CV - [Nama Anda]</title>
-    <!-- Link ke file CSS eksternal -->
+    <title>Nayaka's CV </title>
+
+    <meta
+      name="description"
+      content="Personal portfolio of [Your Name], a [Your Profession] specializing in [Main Skill]. View my projects, experience, and skills."
+    />
+
     <link rel="stylesheet" href="styles.css" />
-    <!-- Font Google untuk tipografi yang lebih menarik -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Font Awesome untuk ikon -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
   </head>
   <body>
@@ -43,7 +40,45 @@
       <div class="nav-container">
         <!-- Logo atau nama brand - GANTI [Nama Anda] -->
         <div class="nav-logo">
-          <a href="#home">[Nama Anda]</a>
+          <a href="#home" aria-label="Home page - Nayaka">
+            <svg
+              width="36"
+              height="36"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+              class="nav-logo-svg"
+            >
+              <defs>
+                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:var(--primary-color);stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:var(--secondary-color);stop-opacity:1" />
+                </linearGradient>
+                <filter id="shadow">
+                  <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="rgba(0,0,0,0.2)" />
+                </filter>
+              </defs>
+
+              <rect
+                width="100"
+                height="100"
+                rx="25"
+                fill="url(#logoGradient)"
+                filter="url(#shadow)"
+              />
+              <text
+                x="50%"
+                y="51%"
+                dominant-baseline="middle"
+                text-anchor="middle"
+                fill="white"
+                font-size="55"
+                font-family="Poppins, sans-serif"
+                font-weight="700"
+              >
+                N
+              </text>
+            </svg>
+          </a>
         </div>
 
         <!-- Menu navigasi utama -->
@@ -52,22 +87,25 @@
             <a href="#home" class="nav-link active">Home</a>
           </li>
           <li class="nav-item">
-            <a href="#about" class="nav-link">Tentang Saya</a>
+            <a href="#about" class="nav-link">About Me</a>
           </li>
           <li class="nav-item">
-            <a href="#skills" class="nav-link">Keahlian</a>
+            <a href="#skills" class="nav-link">Skills</a>
           </li>
           <li class="nav-item">
-            <a href="#portfolio" class="nav-link">Portofolio</a>
+            <a href="#portfolio" class="nav-link">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a href="#education" class="nav-link">Pendidikan</a>
+            <a href="#achievements" class="nav-link">Achievements</a>
           </li>
           <li class="nav-item">
-            <a href="#experience" class="nav-link">Pengalaman</a>
+            <a href="#education" class="nav-link">Education</a>
           </li>
           <li class="nav-item">
-            <a href="#contact" class="nav-link">Kontak</a>
+            <a href="#experience" class="nav-link">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
           </li>
         </ul>
 
@@ -104,90 +142,34 @@
       ============================================
     -->
     <section id="home" class="hero">
+      <div class="hero-shape shape-1"></div>
+      <div class="hero-shape shape-2"></div>
       <div class="hero-container">
-        <!-- 
-          FOTO PROFIL
-          INSTRUKSI: Ganti URL dengan path foto Anda
-          Contoh: src="images/profile.jpg" atau src="https://link-foto.com/foto.jpg"
-        -->
         <div class="hero-image">
-          <img
-            src="https://via.placeholder.com/300x300"
-            alt="Foto Profil"
-            class="profile-img"
-          />
+          <img src="assets/Gemini_Generated_Image_8b37nu8b37nu8b371.png" alt="Profile Photo" class="profile-img" />
         </div>
-
-        <!-- INFORMASI UTAMA -->
         <div class="hero-content">
-          <!-- 
-            NAMA ANDA
-            INSTRUKSI: Ganti [Nama Lengkap Anda] dengan nama asli
-          -->
-          <h1 class="hero-title">
-            Halo, Saya <span class="highlight">[Nama Lengkap Anda]</span>
-          </h1>
-          
-          <!-- 
-            PROFESI/TITLE (dengan typing effect)
-            INSTRUKSI: Text ini akan berubah otomatis (lihat script.js)
-            Edit array textArray di script.js untuk mengubah profesi yang ditampilkan
-          -->
-          <h2 class="hero-subtitle">
-            <span class="typed-text"></span><span class="cursor">&nbsp;</span>
-          </h2>
-          
-          <!-- 
-            DESKRIPSI SINGKAT
-            INSTRUKSI: Tulis 2-3 kalimat tentang diri Anda
-            Ganti [profesi/bidang Anda] dan [keahlian utama]
-            Contoh: "Saya adalah seorang Web Developer yang berpengalaman dalam..."
-          -->
+          <h1 class="hero-title">Hello, I'm <span class="highlight">Nayaka Alkaesyah Suryanto</span></h1>
+          <h2 class="hero-subtitle"><span class="typed-text"></span><span class="cursor">&nbsp;</span></h2>
           <p class="hero-description">
-            Saya adalah seorang [profesi/bidang Anda] yang berpengalaman dalam
-            [keahlian utama]. Saya memiliki passion dalam menciptakan solusi
-            inovatif dan berkualitas tinggi.
+            First-year Electrical Engineering student at Udayana University, highly motivated and proactive with a passion for
+            Robotics and Programming. Equipped with a strong foundation in physics, mathematics, and informatics. Eager
+            to find an opportunity to apply and grow my skills in a practical setting through projects, organizations, or an
+            internship.
           </p>
-
-          <!-- 
-            TOMBOL CALL-TO-ACTION
-            INSTRUKSI: Tombol ini sudah terhubung ke section Contact dan Portfolio
-            Tidak perlu diubah kecuali ingin mengganti text tombol
-          -->
           <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary">Hubungi Saya</a>
-            <a href="#portfolio" class="btn btn-secondary">Lihat Portofolio</a>
+            <a href="#contact" class="btn btn-primary">Contact Me</a>
+            <a href="#portfolio" class="btn btn-secondary">View Portfolio</a>
           </div>
-
-          <!-- 
-            SOCIAL MEDIA LINKS
-            INSTRUKSI: Ganti href="#" dengan URL profil social media Anda
-            Contoh: href="https://linkedin.com/in/username"
-            Hapus atau tambah social media sesuai kebutuhan
-          -->
           <div class="social-links">
-            <a href="#" class="social-link" target="_blank" title="LinkedIn">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="#" class="social-link" target="_blank" title="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="#" class="social-link" target="_blank" title="Instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="social-link" target="_blank" title="Email">
-              <i class="fas fa-envelope"></i>
-            </a>
+            <a href="https://www.linkedin.com/in/nayakaalkaesyahsuryanto/" class="social-link" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/NayPyon" class="social-link" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/alkaesyahs_/" class="social-link" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:nayakaingram@gmail.com?subject=Website%20Portfolio%20Inquiry" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
       </div>
-
-      <!-- Scroll indicator (panah ke bawah) -->
-      <div class="scroll-indicator">
-        <a href="#about">
-          <i class="fas fa-chevron-down"></i>
-        </a>
-      </div>
+      <div class="scroll-indicator"><a href="#about"><i class="fas fa-chevron-down"></i></a></div>
     </section>
 
     <!-- 
@@ -214,76 +196,32 @@
     <section id="about" class="about">
       <div class="container">
         <div class="section-title">
-          <h2>Tentang Saya</h2>
-          <p>Kenali lebih dekat tentang background dan passion saya</p>
+          <h2>About Me</h2>
+          <p>Get to know more about my background and passion</p>
         </div>
-
         <div class="about-content">
-          <!-- 
-            INFORMASI PERSONAL
-            INSTRUKSI: Tulis cerita tentang diri Anda di sini
-          -->
           <div class="about-text">
-            <h3>Profil Singkat</h3>
-            <!-- 
-              DESKRIPSI LENGKAP
-              INSTRUKSI: Tulis 3-5 kalimat tentang:
-              - Background pendidikan Anda
-              - Pengalaman profesional
-              - Keahlian dan passion
-              - Apa yang membuat Anda unik
-            -->
+            <h3>Short Profile</h3>
             <p>
-              [Tulis deskripsi lengkap tentang diri Anda, background pendidikan,
-              pengalaman, dan apa yang membuat Anda unik dalam bidang Anda.]
+              I am a driven first-year Electrical Engineering student at Udayana University
+              with a deep passion for the intersection of hardware and software. My primary
+              interests lie in Programming, Robotics, and the Internet of Things (IoT). Beyond 
+              just coursework, I am actively developing hands-on skills in C++ and Python and Arduino
+              programming to build and automate real-world projects. I am eager to apply my analytical
+              skills and am currently seeking an internship or research opportunity where I can contribute
+              to innovative engineering challenges.
             </p>
-
-            <!-- 
-              DETAIL INFORMASI
-              INSTRUKSI: Isi setiap detail dengan informasi Anda
-              Tambah atau kurangi detail-item sesuai kebutuhan
-            -->
             <div class="about-details">
-              <div class="detail-item">
-                <span class="detail-label">Nama:</span>
-                <span class="detail-value">[Nama Lengkap]</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Lokasi:</span>
-                <span class="detail-value">[Kota, Negara]</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Email:</span>
-                <span class="detail-value">[email@example.com]</span>
-              </div>
-              <div class="detail-item">
-                <span class="detail-label">Pendidikan:</span>
-                <span class="detail-value">[Gelar, Universitas]</span>
-              </div>
+              <div class="detail-item"><span class="detail-label">Name:</span><span class="detail-value">Nayaka Alkaesyah Suryanto</span></div>
+              <div class="detail-item"><span class="detail-label">Location:</span><span class="detail-value">Bali, Indonesia</span></div>
+              <div class="detail-item"><span class="detail-label">Email:</span><span class="detail-value">nayakaingram@gmail.com</span></div>
+              <div class="detail-item"><span class="detail-label">Education:</span><span class="detail-value">1st year Undergraduate Electrical Engineering Student at Udayana University</span></div>
             </div>
-
-            <!-- 
-              TOMBOL DOWNLOAD CV
-              INSTRUKSI: 
-              1. Upload file CV Anda (format PDF) ke folder project
-              2. Ganti href="#" dengan "path/ke/CV-Anda.pdf"
-              Contoh: href="files/CV-JohnDoe.pdf"
-            -->
             <div class="about-buttons">
-              <a href="#" class="btn btn-primary" download>
-                <i class="fas fa-download"></i> Download CV
-              </a>
+              <a href="assets/Nayaka Alkaesyah Suryanto-resume.pdf" class="btn btn-primary" download><i class="fas fa-download"></i> Download CV</a>
             </div>
           </div>
-
-          <!-- 
-            GAMBAR ABOUT
-            INSTRUKSI: Ganti dengan foto/ilustrasi yang mewakili Anda
-            Bisa foto working, hobi, atau ilustrasi yang relevan
-          -->
-          <div class="about-image">
-            <img src="https://via.placeholder.com/400x400" alt="About Image" />
-          </div>
+          <div class="about-image"><img src="assets/images.jpeg" alt="About Image" loading="lazy" /></div>
         </div>
       </div>
     </section>
@@ -316,10 +254,9 @@
     <section id="skills" class="skills">
       <div class="container">
         <div class="section-title">
-          <h2>Keahlian & Teknologi</h2>
-          <p>Technologies dan tools yang saya kuasai</p>
+          <h2>Skills & Technology</h2>
+          <p>Technologies and tools I master</p>
         </div>
-
         <div class="skills-content">
           <!-- 
             TECHNICAL SKILLS
@@ -328,53 +265,36 @@
           <div class="skills-category">
             <h3>Technical Skills</h3>
             <div class="skills-grid">
-              <!-- 
-                SKILL ITEM TEMPLATE
-                INSTRUKSI untuk setiap skill:
-                1. Ganti ikon (cari di fontawesome.com)
-                2. Ganti nama skill di <h4>
-                3. Update data-width="XX%" sesuai level Anda
-                4. Update skill-percentage text sesuai data-width
-                5. Copy seluruh div.skill-item untuk menambah skill baru
-              -->
               <div class="skill-item">
-                <div class="skill-icon">
-                  <!-- INSTRUKSI: Ganti class ikon di sini -->
-                  <i class="fab fa-html5"></i>
-                </div>
-                <!-- INSTRUKSI: Ganti nama teknologi -->
-                <h4>HTML5</h4>
-                <div class="skill-bar">
-                  <!-- INSTRUKSI: Ganti persentase sesuai level Anda (0-100%) -->
-                  <div class="skill-progress" data-width="90%"></div>
-                </div>
-                <!-- INSTRUKSI: Sesuaikan dengan data-width di atas -->
-                <span class="skill-percentage">90%</span>
-              </div>
-
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <i class="fab fa-css3-alt"></i>
-                </div>
-                <h4>CSS3</h4>
-                <div class="skill-bar">
-                  <div class="skill-progress" data-width="85%"></div>
-                </div>
-                <span class="skill-percentage">85%</span>
-              </div>
-
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <i class="fab fa-js"></i>
-                </div>
-                <h4>JavaScript</h4>
-                <div class="skill-bar">
-                  <div class="skill-progress" data-width="80%"></div>
-                </div>
+                <div class="skill-icon"><img class="custom-icon" src="assets/cplus.svg" alt="C++ Icon"></div>
+                <h4>C/C++</h4>
+                <div class="skill-bar"><div class="skill-progress" data-width="80%"></div></div>
                 <span class="skill-percentage">80%</span>
               </div>
-
-              <!-- Tambahkan skill lainnya sesuai kebutuhan -->
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fab fa-python"></i></div>
+                <h4>Python</h4>
+                <div class="skill-bar"><div class="skill-progress" data-width="50%"></div></div>
+                <span class="skill-percentage">50%</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                <h4>HTML5</h4>
+                <div class="skill-bar"><div class="skill-progress" data-width="45%"></div></div>
+                <span class="skill-percentage">45%</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                <h4>CSS3</h4>
+                <div class="skill-bar"><div class="skill-progress" data-width="30%"></div></div>
+                <span class="skill-percentage">30%</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fab fa-js"></i></div>
+                <h4>JavaScript</h4>
+                <div class="skill-bar"><div class="skill-progress" data-width="30%"></div></div>
+                <span class="skill-percentage">30%</span>
+              </div>
             </div>
           </div>
 
@@ -388,23 +308,13 @@
           <div class="skills-category">
             <h3>Soft Skills</h3>
             <div class="soft-skills">
-              <div class="soft-skill-item">
-                <i class="fas fa-users"></i>
-                <!-- INSTRUKSI: Ganti dengan soft skill Anda -->
-                <span>Teamwork</span>
-              </div>
-              <div class="soft-skill-item">
-                <i class="fas fa-lightbulb"></i>
-                <span>Problem Solving</span>
-              </div>
-              <div class="soft-skill-item">
-                <i class="fas fa-comments"></i>
-                <span>Communication</span>
-              </div>
-              <div class="soft-skill-item">
-                <i class="fas fa-clock"></i>
-                <span>Time Management</span>
-              </div>
+              <div class="soft-skill-item"><i class="fas fa-users"></i><span>Teamwork</span></div>
+              <div class="soft-skill-item"><i class="fas fa-lightbulb"></i><span>Problem Solving</span></div>
+              <div class="soft-skill-item"><i class="fas fa-comments"></i><span>Communication</span></div>
+              <div class="soft-skill-item"><i class="fas fa-clock"></i><span>Time Management</span></div>
+              <div class="soft-skill-item"><i class="fas fa-brain"></i><span>Analytical Thinking</span></div>
+              <div class="soft-skill-item"><i class="fas fa-user-tie"></i><span>Leadership</span></div>
+              <div class="soft-skill-item"><i class="fas fa-rocket"></i><span>Initiative</span></div>
             </div>
           </div>
         </div>
@@ -437,8 +347,8 @@
     <section id="portfolio" class="portfolio">
       <div class="container">
         <div class="section-title">
-          <h2>Portofolio</h2>
-          <p>Beberapa project terbaik yang pernah saya kerjakan</p>
+          <h2>Portfolio</h2>
+          <p>Some of the best projects I've worked on</p>
         </div>
 
         <!-- 
@@ -447,10 +357,10 @@
           data-filter harus sama dengan data-category di portfolio-item
         -->
         <div class="portfolio-filters">
-          <button class="filter-btn active" data-filter="all">Semua</button>
-          <button class="filter-btn" data-filter="web">Web Development</button>
-          <button class="filter-btn" data-filter="mobile">Mobile App</button>
-          <button class="filter-btn" data-filter="design">Design</button>
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="Web Development">Web Development</button>
+          <button class="filter-btn" data-filter="Microcontroller">Microcontroller</button>
+          <button class="filter-btn" data-filter="Computer Vision">Computer Vision</button>
         </div>
 
         <!-- 
@@ -458,97 +368,70 @@
           INSTRUKSI: Copy-paste seluruh portfolio-item untuk menambah project
         -->
         <div class="portfolio-grid">
-          <!-- 
-            PORTFOLIO ITEM TEMPLATE
-            INSTRUKSI untuk setiap project:
-            1. Set data-category sesuai jenis project (harus sama dengan filter)
-            2. Upload gambar project dan ganti src
-            3. Update nama project di 2 tempat (overlay dan content)
-            4. Tulis deskripsi singkat project
-            5. Ganti href dengan link ke live demo dan GitHub
-            6. Update technology tags sesuai tech yang digunakan
-          -->
-          <div class="portfolio-item" data-category="web">
-            <div class="portfolio-image">
-              <!-- INSTRUKSI: Upload dan ganti dengan gambar project Anda -->
-              <img src="https://via.placeholder.com/400x300" alt="Project 1" />
-              
-              <!-- Overlay yang muncul saat hover -->
-              <div class="portfolio-overlay">
-                <div class="portfolio-info">
-                  <!-- INSTRUKSI: Ganti dengan nama project -->
-                  <h4>Nama Project 1</h4>
-                  <!-- INSTRUKSI: Ganti dengan kategori project -->
-                  <p>Web Development</p>
-                  <div class="portfolio-links">
-                    <!-- INSTRUKSI: Link 1 - Ganti href dengan URL live demo -->
-                    <a href="#" class="portfolio-link" target="_blank" title="Live Demo">
-                      <i class="fas fa-external-link-alt"></i>
-                    </a>
-                    <!-- INSTRUKSI: Link 2 - Ganti href dengan URL GitHub repo -->
-                    <a href="#" class="portfolio-link" target="_blank" title="GitHub">
-                      <i class="fab fa-github"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Konten project di bawah gambar -->
-            <div class="portfolio-content">
-              <!-- INSTRUKSI: Nama project (sama dengan di overlay) -->
-              <h4>Nama Project 1</h4>
-              <!-- INSTRUKSI: Tulis deskripsi 1-2 kalimat tentang project -->
-              <p>
-                Deskripsi singkat tentang project ini dan teknologi yang
-                digunakan.
-              </p>
-              <!-- 
-                TECHNOLOGY TAGS
-                INSTRUKSI: Ganti dengan teknologi yang digunakan di project
-                Copy <span> untuk menambah tag baru
-              -->
-              <div class="portfolio-tech">
-                <span class="tech-tag">HTML</span>
-                <span class="tech-tag">CSS</span>
-                <span class="tech-tag">JavaScript</span>
-              </div>
-            </div>
           </div>
+      </div>
+    </section>
 
-          <!-- 
-            PROJECT 2 EXAMPLE
-            INSTRUKSI: Isi seperti project 1, atau hapus jika tidak perlu
-          -->
-          <div class="portfolio-item" data-category="mobile">
-            <div class="portfolio-image">
-              <img src="https://via.placeholder.com/400x300" alt="Project 2" />
-              <div class="portfolio-overlay">
-                <div class="portfolio-info">
-                  <h4>Nama Project 2</h4>
-                  <p>Mobile App</p>
-                  <div class="portfolio-links">
-                    <a href="#" class="portfolio-link" target="_blank">
-                      <i class="fas fa-external-link-alt"></i>
-                    </a>
-                    <a href="#" class="portfolio-link" target="_blank">
-                      <i class="fab fa-github"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
+    <section id="achievements" class="achievements">
+      <div class="container">
+        <div class="section-title">
+          <h2>Achievements & Certifications</h2>
+          <p>Validation of my knowledge and achievements</p>
+        </div>
+
+        <div class="education-content">
+         <!--<button
+            class="education-card clickable-card"
+            data-image="https://via.placeholder.com/800x600"
+            data-title="[Nama Prestasi/Lomba]"
+            data-details="Penyelenggara: [Penyelenggara/Acara] | Tahun: [Tahun, misal: 2023] | Deskripsi: [Deskripsi singkat prestasi]"
+          >
+            <div class="education-icon">
+              <i class="fas fa-trophy"></i>
             </div>
-            <div class="portfolio-content">
-              <h4>Nama Project 2</h4>
-              <p>
-                Deskripsi singkat tentang project mobile app dan fitur-fiturnya.
-              </p>
-              <div class="portfolio-tech">
-                <span class="tech-tag">React Native</span>
-                <span class="tech-tag">Firebase</span>
-              </div>
+            <div class="education-info">
+              <h3>[Nama Prestasi/Lomba]</h3>
+              <h4>[Penyelenggara/Acara]</h4>
+              <p class="education-year"><i class="fas fa-calendar"></i> [Tahun, misal: 2023]</p>
+              <p class="education-major"><i class="fas fa-book"></i> [Deskripsi singkat prestasi]</p>
             </div>
-          </div>
+          </button>-->
+
+          <button
+             class="education-card clickable-card"
+             data-image="assets/SERTIF UKBI 2024 - 2026_page-0001.jpg"
+             data-title="Indonesian Language Proficiency Test (UKBI)"
+             data-details="Platform: Badan Pengembangan dan Pembinaan Bahasa | Issued: Mar 2024 - Mar 2026 | Desc: Achieved the 'Unggul' (Superior)
+              predicate (Score: 631) on the Indonesian Language Proficiency Test (UKBI). This certification demonstrates 'very adequate proficiency'
+              for complex professional communication. Issued by Kemendikbudristek and valid until March 2026."
+          >
+            <div class="education-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="education-info">
+              <h3>Indonesian Language Proficiency Test (UKBI)</h3>
+              <h4>Badan Pengembangan dan Pembinaan Bahasa</h4>
+              <p class="education-year"><i class="fas fa-calendar"></i> Issued Mar 2024 · Expires Mar 2026 </p>
+              <p class="education-major"><i class="fas fa-book"></i> UKBI Superior ('Unggul') Predicate (Score 631) for professional communication.</p>
+            </div>
+          </button>
+          
+          <!--<button
+            class="education-card clickable-card"
+            data-image="https://via.placeholder.com/800x600"
+            data-title="[Jabatan di Organisasi]"
+            data-details="Organisasi: [Nama Organisasi] | Periode: [Tahun Masuk] - Sekarang | Kontribusi: [Deskripsi singkat tanggung jawab]"
+          >
+            <div class="education-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="education-info">
+              <h3>[Jabatan di Organisasi]</h3>
+              <h4>[Nama Organisasi, misal: UKM Robotika Udayana]</h4>
+              <p class="education-year"><i class="fas fa-calendar"></i> [Tahun Masuk] - Sekarang</p>
+              <p class="education-major"><i class="fas fa-book"></i> [Deskripsi singkat tanggung jawab/kontribusi]</p>
+            </div>
+          </button>-->
 
           <!-- 
             INSTRUKSI: Copy seluruh portfolio-item di atas untuk menambah project baru
@@ -584,8 +467,8 @@
     <section id="education" class="education">
       <div class="container">
         <div class="section-title">
-          <h2>Pendidikan</h2>
-          <p>Riwayat pendidikan formal dan sertifikasi</p>
+          <h2>Education</h2>
+          <p>My formal education and certification history</p>
         </div>
 
         <div class="education-content">
@@ -598,65 +481,30 @@
               <i class="fas fa-graduation-cap"></i>
             </div>
             <div class="education-info">
-              <!-- INSTRUKSI: Ganti dengan jenjang pendidikan (S1, S2, D3, SMA, dll) -->
-              <h3>[Jenjang Pendidikan]</h3>
-              <!-- INSTRUKSI: Ganti dengan nama universitas/sekolah -->
-              <h4>[Nama Universitas/Sekolah]</h4>
-              <!-- INSTRUKSI: Ganti dengan jurusan/program studi -->
-              <p class="education-major">
-                <i class="fas fa-book"></i> [Jurusan/Program Studi]
-              </p>
-              <!-- INSTRUKSI: Ganti dengan tahun masuk - lulus -->
-              <p class="education-year">
-                <i class="fas fa-calendar"></i> [Tahun Masuk] - [Tahun Lulus]
-              </p>
-              <!-- 
-                INSTRUKSI: (Opsional) Tambahkan IPK atau prestasi
-                Hapus baris ini jika tidak ingin menampilkan
-              -->
-              <p class="education-gpa">
-                <i class="fas fa-award"></i> IPK: [IPK Anda] / 4.00
-              </p>
-              <!-- 
-                INSTRUKSI: (Opsional) Tambahkan deskripsi singkat atau prestasi
-                Hapus tag <ul> ini jika tidak perlu
-              -->
-              <ul class="education-achievements">
-                <li>Prestasi atau kegiatan akademik 1</li>
-                <li>Prestasi atau kegiatan akademik 2</li>
-                <li>Organisasi atau kepanitiaan</li>
-              </ul>
+              <h3>Undergraduate Student</h3>
+              <h4>Udayana University</h4>
+              <p class="education-major"><i class="fas fa-book"></i> Electrical Engineering</p>
+              <p class="education-year"><i class="fas fa-calendar"></i> 2025 - Present</p>
+              <p class="education-gpa"><i class="fas fa-award"></i> GPA: - / 4.00</p>
             </div>
           </div>
 
-          <!-- 
-            EDUCATION CARD 2 (Pendidikan Sebelumnya)
-            INSTRUKSI: Copy education-card untuk menambah pendidikan lainnya
-          -->
           <div class="education-card">
             <div class="education-icon">
               <i class="fas fa-graduation-cap"></i>
             </div>
             <div class="education-info">
-              <h3>[Jenjang Pendidikan Sebelumnya]</h3>
-              <h4>[Nama Sekolah]</h4>
-              <p class="education-major">
-                <i class="fas fa-book"></i> [Jurusan (jika ada)]
-              </p>
-              <p class="education-year">
-                <i class="fas fa-calendar"></i> [Tahun Masuk] - [Tahun Lulus]
-              </p>
+              <h3>Senior High School</h3>
+              <h4>SMAN 4 Denpasar</h4>
+              <p class="education-major"><i class="fas fa-book"></i> Engineering Specializion</p>
+              <p class="education-year"><i class="fas fa-calendar"></i> 2021 - 2024</p>
+              <p class="education-gpa"><i class="fas fa-award"></i> GPA: 88.88 / 100</p>
             </div>
           </div>
-
-          <!-- 
-            INSTRUKSI: Copy seluruh <div class="education-card"> 
-            untuk menambah riwayat pendidikan lainnya atau sertifikasi
-          -->
         </div>
       </div>
     </section>
-
+    
     <!-- 
       ============================================
       SECTION 7: PENGALAMAN / EXPERIENCE
@@ -683,67 +531,68 @@
     <section id="experience" class="experience">
       <div class="container">
         <div class="section-title">
-          <h2>Pengalaman</h2>
-          <p>Perjalanan karier dan pendidikan saya</p>
+          <h2>Experience</h2>
+          <p>My career and educational journey</p>
         </div>
-
         <div class="experience-content">
-          <!-- Timeline untuk pengalaman kerja -->
           <div class="timeline">
-            <!-- 
-              TIMELINE ITEM 1 (Pengalaman Terbaru)
-              INSTRUKSI: Isi dengan pengalaman kerja/organisasi terbaru
-            -->
             <div class="timeline-item">
-              <div class="timeline-date">
-                <!-- INSTRUKSI: Ganti dengan periode kerja (contoh: "2023 - Sekarang") -->
-                <span>2023 - Sekarang</span>
-              </div>
+              <div class="timeline-date"><span>Aug 2025 - Present</span></div>
               <div class="timeline-content">
-                <!-- INSTRUKSI: Ganti dengan posisi/jabatan Anda -->
-                <h3>[Posisi Pekerjaan]</h3>
-                <!-- INSTRUKSI: Ganti dengan nama perusahaan/organisasi -->
-                <h4>[Nama Perusahaan]</h4>
-                <!-- 
-                  INSTRUKSI: Tulis 2-3 kalimat tentang:
-                  - Tanggung jawab utama
-                  - Project yang dikerjakan
-                  - Impact/hasil yang dicapai
-                -->
-                <p>
-                  Deskripsi tanggung jawab dan pencapaian dalam posisi ini.
-                  Jelaskan project yang dikerjakan dan impact yang dihasilkan.
-                </p>
-                <!-- 
-                  INSTRUKSI: List 3-5 pencapaian/tanggung jawab penting
-                  Gunakan action words dan hasil terukur jika ada
-                -->
+                <h3>Member of Coding Division</h3>
+                <h4>Robotec Udayana</h4>
+                <p>A core programmer role for the 'Agni Udayana' (KRSRI) competition robot, focusing on C++ firmware, sensor integration, and inter-divisional testing.</p>
                 <ul>
-                  <li>Pencapaian atau tanggung jawab 1</li>
-                  <li>Pencapaian atau tanggung jawab 2</li>
-                  <li>Pencapaian atau tanggung jawab 3</li>
+                  <li>Collaborated closely with the Electronics and Mechanics Divisions to debug, test, and optimize the robot's performance in preparation for
+                    competition.</li>
+                  <li>Responsible for the development and implementation of firmware (software) for the "Agni Udayana" (KRSRI) robot using C++.</li>
+                  <li>Integrating and retrieving data from various sensors.</li>
                 </ul>
               </div>
             </div>
 
-            <!-- 
-              TIMELINE ITEM 2 (Pengalaman Sebelumnya)
-              INSTRUKSI: Copy timeline-item untuk menambah pengalaman lainnya
-            -->
             <div class="timeline-item">
-              <div class="timeline-date">
-                <span>2021 - 2023</span>
-              </div>
+              <div class="timeline-date"><span>Aug 2025 - Present</span></div>
               <div class="timeline-content">
-                <h3>[Posisi Sebelumnya]</h3>
-                <h4>[Nama Perusahaan]</h4>
-                <p>
-                  Deskripsi pengalaman kerja sebelumnya dan kontribusi yang
-                  diberikan.
-                </p>
+                <h3>General member of Smart Technology Division</h3>
+                <h4>Technology Artisan</h4>
+                <p>A research and development division focused on creating practical prototypes using Internet of Things (IoT) and Computer Vision (CV) technologies.</p>
                 <ul>
-                  <li>Pencapaian atau tanggung jawab 1</li>
-                  <li>Pencapaian atau tanggung jawab 2</li>
+                  <li>Actively involved in the research and development of prototypes in the fields of Internet of Things (IoT) and Computer Vision (CV).</li>
+                  <li>Learned and implemented microcontroller connectivity (ESP32) to the Blynk cloud platform for IoT projects.</li>
+                  <li>Studied the fundamentals of image processing (CV) using Python for basic object detection tasks.</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-date"><span>Jun 2023 - Apr 2024</span></div>
+              <div class="timeline-content">
+                <h3>Vice President</h3>
+                <h4>Foursma Computer Club</h4>
+                <p>Co-led a 30+ member technology club, coordinating 4+ technical divisions and executing a major informatics olympiad.</p>
+                <ul>
+                  <li>Assisted the Club President in leading and managing the daily operations of an 
+                    organization with 30+ active members.</li>
+                  <li>Supervised and coordinated the execution of programs across various divisions, 
+                    including Programming, Troubleshooting, Design, and Robotics.</li>
+                  <li>Played an active role in strategic planning, new member recruitment, and the 
+                    execution of the club's main event, "FIO: Foursma Informatics Olympiad."</li>
+                  <li>Acted as the primary internal contact and facilitated effective communication between members and the executive board.</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-date"><span>Jan 2022 - Jun 2023</span></div>
+              <div class="timeline-content">
+                <h3>Member of Programming Division</h3>
+                <h4>Foursma Computer Club</h4>
+                <p>A division within the club dedicated to developing practical skills in algorithms, 
+                  C++ programming, and robotics to prepare members for technical projects and competitions.</p>
+                <ul>
+                  <li>Actively participated in an extracurricular program focused on enhancing digital literacy and skills.</li>
+                  <li>Learned and applied the fundamentals of C++ Programming and Robotics.</li>
                 </ul>
               </div>
             </div>
@@ -781,51 +630,31 @@
     <section id="contact" class="contact">
       <div class="container">
         <div class="section-title">
-          <h2>Hubungi Saya</h2>
-          <p>Mari berdiskusi tentang project atau kolaborasi yang menarik</p>
+          <h2>Contact Me</h2>
+          <p>Let's discuss interesting projects or collaborations</p>
         </div>
-
         <div class="contact-content">
-          <!-- 
-            INFORMASI KONTAK KIRI
-            INSTRUKSI: Ganti semua [...] dengan informasi kontak Anda
-          -->
           <div class="contact-info">
-            <h3>Informasi Kontak</h3>
-            
-            <!-- Contact Item 1: Alamat -->
+            <h3>Contact Information</h3>
             <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
               <div class="contact-details">
-                <h4>Alamat</h4>
-                <!-- INSTRUKSI: Ganti dengan alamat lengkap Anda -->
-                <p>[Alamat lengkap Anda]</p>
+                <h4>Address</h4>
+                <p>Jl. Pura Demak 1 No. 10</p>
               </div>
             </div>
-
-            <!-- Contact Item 2: Telepon -->
             <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-phone"></i>
-              </div>
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
               <div class="contact-details">
-                <h4>Telepon</h4>
-                <!-- INSTRUKSI: Ganti dengan nomor telepon Anda -->
-                <p>[Nomor telepon]</p>
+                <h4>Phone</h4>
+                <p>+62 81337752077</p>
               </div>
             </div>
-
-            <!-- Contact Item 3: Email -->
             <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
               <div class="contact-details">
                 <h4>Email</h4>
-                <!-- INSTRUKSI: Ganti dengan email Anda -->
-                <p>[email@example.com]</p>
+                <p>nayakaingram@gmail.com</p>
               </div>
             </div>
           </div>
@@ -842,56 +671,13 @@
             - Jika ingin kirim ke email, lihat script.js line ~220
           -->
           <div class="contact-form">
-            <h3>Kirim Pesan</h3>
-            <form id="contactForm">
-              <!-- Input Nama -->
-              <div class="form-group">
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Nama Lengkap"
-                  required
-                />
-              </div>
-              
-              <!-- Input Email -->
-              <div class="form-group">
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                  required
-                />
-              </div>
-              
-              <!-- Input Subject -->
-              <div class="form-group">
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  placeholder="Subject"
-                  required
-                />
-              </div>
-              
-              <!-- Textarea Message -->
-              <div class="form-group">
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="Pesan Anda"
-                  rows="5"
-                  required
-                ></textarea>
-              </div>
-              
-              <!-- Submit Button -->
-              <button type="submit" class="btn btn-primary">
-                <i class="fas fa-paper-plane"></i> Kirim Pesan
-              </button>
+            <h3>Send a Message</h3>
+            <form id="contactForm" action="https://formspree.io/f/xrbrgpng" method="POST">
+              <div class="form-group"><input type="text" id="name" name="name" placeholder="Full Name" required /></div>
+              <div class="form-group"><input type="email" id="email" name="email" placeholder="Email" required /></div>
+              <div class="form-group"><input type="text" id="subject" name="subject" placeholder="Subject" required /></div>
+              <div class="form-group"><textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea></div>
+              <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
             </form>
           </div>
         </div>
@@ -916,26 +702,11 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <div class="footer-text">
-            <!-- INSTRUKSI: Ganti [Nama Anda] dan tahun jika perlu -->
-            <p>&copy; 2025 [Nama Anda]. All rights reserved.</p>
-          </div>
-          
-          <!-- 
-            SOCIAL LINKS FOOTER
-            INSTRUKSI: Ganti href="#" dengan URL social media Anda
-            (sama seperti di Hero section)
-          -->
+          <div class="footer-text"><p>&copy; 2025 NayPyon. All rights reserved.</p></div>
           <div class="footer-social">
-            <a href="#" class="social-link" title="LinkedIn">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="#" class="social-link" title="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="#" class="social-link" title="Instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
+            <a href="https://www.linkedin.com/in/nayakaalkaesyahsuryanto/" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/NayPyon" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/alkaesyahs_/" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
       </div>
@@ -957,18 +728,36 @@
       <i class="fas fa-chevron-up"></i>
     </div>
 
-    <!-- 
-      ============================================
-      JAVASCRIPT
-      ============================================
-      PENJELASAN:
-      - Menghubungkan file JavaScript eksternal
-      - Berisi semua interactivity website
-      
-      INSTRUKSI: Jangan ubah lokasi script ini (harus di akhir body)
-      Untuk edit functionality, buka file script.js
-      ============================================
-    -->
+    <div class="portfolio-lightbox" id="portfolioLightbox">
+      <div class="lightbox-backdrop" id="portfolioBackdrop"></div>
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="portfolioClose">&times;</button>
+        
+        <div class="lightbox-slider-container">
+          <img src="" alt="Portfolio Project Image" class="lightbox-image" id="lightboxPortfolioImage" />
+          <button class="slider-btn prev" id="sliderPrevBtn"><i class="fas fa-chevron-left"></i></button>
+          <button class="slider-btn next" id="sliderNextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <h3 class="lightbox-title" id="lightboxPortfolioTitle"></h3>
+        <p class="lightbox-description" id="lightboxPortfolioDescription"></p>
+        <div class="lightbox-tech" id="lightboxPortfolioTech"></div>
+        <div class="lightbox-links">
+          <a href="#" class="btn btn-primary" id="lightboxLiveLink" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          <a href="#" class="btn btn-secondary" id="lightboxGithubLink" target="_blank"><i class="fab fa-github"></i> View Code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-lightbox" id="achievementLightbox">
+      <div class="lightbox-backdrop" id="achievementBackdrop"></div>
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="achievementClose">&times;</button>
+        <img src="" alt="Achievement Certificate Image" class="lightbox-image-full" id="lightboxAchievementImage" />
+        <h3 class="lightbox-title" id="lightboxAchievementTitle"></h3>
+        <p class="lightbox-description" id="lightboxAchievementDetails"></p>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

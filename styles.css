@@ -1,90 +1,111 @@
-/* 
-=====================================================
+/* =====================================================
   WEBSITE CV - STYLESHEET
 =====================================================
   
   📋 DAFTAR ISI:
-  0. CSS Variables (Tema Warna)
+  0. CSS Variables (Tema Warna) (IMPROVED!)
   1. Reset & Base Styles
   2. Navigation Bar
-  3. Hero Section
+  3. Hero Section (IMPROVED!)
   4. Button Styles
   5. Section General Styles
   6. About Section
-  7. Skills Section
-  8. Portfolio Section
+  7. Skills Section (IMPROVED!)
+  8. Portfolio Section (IMPROVED!)
   9. Education Section
   10. Experience Section
   11. Contact Section
   12. Footer
   13. Scroll to Top Button
+  13.5. Preloader
+  13.7. Portfolio Lightbox
   14. Responsive Design
-  
-  📝 CARA KUSTOMISASI:
-  - Cari section yang ingin diubah
-  - Edit nilai (warna, ukuran, spacing, dll)
-  - Save dan refresh browser untuk melihat perubahan
-  
-  💡 TIPS:
-  - Gunakan Ctrl+F untuk search cepat
-  - Test perubahan di browser dengan F12 Developer Tools
-  - Backup file sebelum melakukan perubahan besar
+  15. Keyframes (IMPROVED!)
   
 =====================================================
 */
 
 /* ===================================
-   0. CSS VARIABLES (TEMA WARNA)
+   0. CSS VARIABLES (TEMA WARNA) (IMPROVED!)
    =================================== 
-   
-   PENJELASAN:
-   - Variabel CSS untuk tema warna global
-   - Memudahkan penggantian warna di satu tempat
-   - Digunakan dengan var(--nama-variabel)
-   
-   INSTRUKSI KUSTOMISASI:
-   - Ganti nilai warna di sini untuk mengubah tema keseluruhan
-   - Nilai warna bisa format HEX (#3498db) atau RGB/RGBA
-   - Variabel ini digunakan di berbagai section
-   
-   TIPS:
-   - Primary color: Warna utama brand/tema
-   - Secondary color: Warna aksen/gradasi dari primary
-   - Text color: Warna untuk judul dan teks penting
-   - Body color: Warna teks paragraf normal
 */
 
 :root {
-  /* INSTRUKSI: Warna Utama - Ganti sesuai brand/tema Anda */
-  --primary-color: #3498db;     /* Warna utama (biru) - digunakan untuk button, link, aksen */
-  --secondary-color: #2980b9;   /* Gradasi/aksen untuk primary - digunakan untuk hover, gradient */
+  /* ===================================
+     INSTRUKSI: Variabel DARK MODE (Default)
+     ===================================
+  */
+  --primary-color: #4338CA; /* Indigo */
+  --secondary-color: #14B8A6; /* Teal */
+
+  --text-color: #F9FAFB; /* Off-white (Judul) */
+  --body-color: #D1D5DB; /* Light Grey (Teks) */
+  --muted-color: #9CA3AF; /* Medium Grey */
+
+  --light-bg: #1E293B; /* Dark Slate (Card) */
+  --white-bg: #111827; /* Darkest (Body) */
+
+  --hero-start: #4338CA;
+  --hero-end: #14B8A6;
+
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --card-border-color: #374151; /* Border untuk card gelap */
   
-  /* INSTRUKSI: Warna Teks */
-  --text-color: #2c3e50;        /* Warna judul dan heading (gelap) */
-  --body-color: #333;           /* Warna teks paragraf normal */
-  --muted-color: #666;          /* Warna teks sekunder/kurang penting */
+  /* ===================================
+    PERBAIKAN: Filter warna untuk ikon <img> C++
+    ===================================
+  */
+  /* Filter untuk mengubah hitam -> Indigo (#4338CA) */
+  --primary-color-filter: invert(31%) sepia(94%) saturate(2250%) hue-rotate(234deg) brightness(93%) contrast(96%);
+  /* Filter untuk mengubah hitam -> Teal (#14B8A6) */
+  --secondary-color-filter: invert(57%) sepia(51%) saturate(996%) hue-rotate(129deg) brightness(94%) contrast(91%);
   
-  /* INSTRUKSI: Warna Background */
-  --light-bg: #f8f9fa;          /* Background section terang (alternating) */
-  --white-bg: #ffffff;          /* Background putih */
+  /* Shadow untuk Glow Effect (Dark Mode) */
+  --shadow-color: rgba(67, 56, 202, 0.3); 
   
-  /* INSTRUKSI: Gradient untuk Hero Section */
-  --hero-start: #667eea;        /* Gradient hero awal (ungu-biru) */
-  --hero-end: #764ba2;          /* Gradient hero akhir (ungu) */
+  --tag-bg: #EEF2FF; /* Bg tag (light indigo) */
+  --tag-text: #3730A3; /* Teks tag (dark indigo) */
+}
+
+/* ===================================
+   IMPROVISASI: Variabel LIGHT MODE
+   ===================================
+*/
+body.light-mode {
+  --primary-color: #4338CA; /* Indigo (Tetap) */
+  --secondary-color: #14B8A6; /* Teal (Tetap) */
+
+  --text-color: #111827; /* Darkest (Judul) */
+  --body-color: #1E293B; /* Dark Slate (Teks) */
+  --muted-color: #6B7280; /* Medium Grey */
+
+  --light-bg: #FFFFFF; /* White (Card) */
+  --white-bg: #F9FAFB; /* Off-white (Body) */
+
+  --hero-start: #4338CA;
+  --hero-end: #14B8A6;
+  
+  --card-border-color: #E5E7EB; /* Border untuk card terang */
+  
+  /* ===================================
+    PERBAIKAN: Filter warna untuk ikon <img> C++
+    ===================================
+  */
+  /* Filternya sama karena warnanya sama */
+  --primary-color-filter: invert(31%) sepia(94%) saturate(2250%) hue-rotate(234deg) brightness(93%) contrast(96%);
+  --secondary-color-filter: invert(57%) sepia(51%) saturate(996%) hue-rotate(129deg) brightness(94%) contrast(91%);
+
+  /* Shadow untuk Glow Effect (Light Mode) */
+  --shadow-color: rgba(67, 56, 202, 0.15); 
+  
+  --tag-bg: #EEF2FF; /* Bg tag (light indigo) */
+  --tag-text: #3730A3; /* Teks tag (dark indigo) */
 }
 
 /* ===================================
    1. RESET DAN BASE STYLES
    =================================== 
-   
-   PENJELASAN:
-   - Reset default styling browser
-   - Set base styles untuk seluruh website
-   
-   INSTRUKSI KUSTOMISASI:
-   - Ganti font-family jika ingin font lain
-   - Adjust line-height untuk spacing text
-   - Ubah color untuk warna text default
 */
 
 /* Reset margin, padding, dan box-sizing untuk semua elemen */
@@ -104,9 +125,22 @@ body {
   /* INSTRUKSI: Ganti 'Poppins' dengan font pilihan Anda dari Google Fonts */
   font-family: "Poppins", sans-serif;
   line-height: 1.6; /* SPACING: Jarak antar baris text */
-  color: #333; /* INSTRUKSI: Ubah untuk warna text default */
-  background-color: #fff; /* INSTRUKSI: Ubah untuk background color website */
+  color: var(--body-color); /* INSTRUKSI: Warna text default dari variabel */
+  background-color: var(
+    --white-bg
+  ); /* INSTRUKSI: Background color website dari variabel */
   overflow-x: hidden; /* EFEK: Mencegah horizontal scroll */
+  
+  /* IMPROVISASI: Transisi halus saat ganti tema */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===================================
+   IMPROVISASI: Mengunci scroll saat modal aktif
+   ===================================
+*/
+body.lightbox-active {
+  overflow: hidden;
 }
 
 /* Container utama untuk mengatur lebar maksimum konten */
@@ -117,17 +151,8 @@ body {
 }
 
 /* ===================================
-   2. NAVIGATION BAR
+   2. NAVIGATION BAR (UPDATED!)
    =================================== 
-   
-   PENJELASAN:
-   - Sticky navigation yang tetap di top saat scroll
-   - Responsive dengan hamburger menu di mobile
-   
-   INSTRUKSI KUSTOMISASI:
-   - Ubah height navbar di .nav-container
-   - Ganti warna background navbar
-   - Adjust spacing dan font-size menu
 */
 
 .navbar {
@@ -135,12 +160,51 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  /* INSTRUKSI: Ubah background color navbar di sini */
-  background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
-  backdrop-filter: blur(10px); /* EFEK: Blur background di belakang navbar */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   z-index: 1000; /* PENTING: Navbar selalu di atas elemen lain */
-  transition: all 0.3s ease; /* EFEK: Smooth transition saat change */
+  
+  /* ============================================
+    IMPROVISASI: Transisi sekarang ditangani oleh CSS
+    ============================================
+  */
+  transition: background-color 0.3s ease, border-bottom 0.3s ease, backdrop-filter 0.3s ease;
+  
+  /* ============================================
+    PERBAIKAN: STATE 1: Dark Mode (Default) - At Top
+    ============================================
+  */
+  background-color: rgba(30, 41, 59, 0.85); /* var(--light-bg) + opacity */
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--card-border-color);
+}
+
+/* ============================================
+   PERBAIKAN: STATE 2: Dark Mode (Default) - Scrolled
+   ============================================
+*/
+.navbar.navbar-scrolled {
+  background-color: var(--white-bg); /* Solid dark body */
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+}
+
+/* ============================================
+   PERBAIKAN: STATE 3: Light Mode - At Top
+   ============================================
+*/
+body.light-mode .navbar {
+  background-color: rgba(255, 255, 255, 0.85); /* var(--light-bg) + opacity */
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--card-border-color);
+}
+
+/* ============================================
+   PERBAIKAN: STATE 4: Light Mode - Scrolled
+   ============================================
+*/
+body.light-mode .navbar.navbar-scrolled {
+  background-color: var(--white-bg); /* Solid light body */
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
 }
 
 /* Container untuk konten navbar */
@@ -156,15 +220,28 @@ body {
 
 /* Logo/brand styling */
 .nav-logo a {
-  font-size: 24px;
-  font-weight: 700;
-  color: #2c3e50;
   text-decoration: none;
-  transition: color 0.3s ease;
+  display: flex; /* Membantu SVG sejajar dengan baik */
+  align-items: center;
+  /* Tambahkan sedikit ruang agar shadow terlihat */
+  padding: 5px; 
 }
 
-.nav-logo a:hover {
-  color: #3498db;
+.nav-logo-svg {
+  /* Style untuk logo SVG baru */
+  /* Ukuran lebih besar agar shadow tidak terpotong */
+  width: 40px; 
+  height: 40px;
+  /* Transisi untuk semua perubahan agar lebih mulus */
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Efek yang lebih elegan */
+  /* Memastikan elemen shadow tidak menyebabkan overflow */
+  overflow: visible; 
+}
+
+.nav-logo a:hover .nav-logo-svg {
+  /* Efek hover yang lebih ekspresif */
+  transform: translateY(-5px) scale(1.05); /* Sedikit naik dan sedikit membesar */
+  filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.3)); /* Shadow yang lebih menonjol */
 }
 
 /* Menu navigasi */
@@ -176,7 +253,7 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: #333;
+  color: var(--body-color); /* Menggunakan variabel (terang/gelap) */
   font-weight: 500;
   transition: color 0.3s ease;
   position: relative;
@@ -185,7 +262,7 @@ body {
 /* Efek hover untuk nav links */
 .nav-link:hover,
 .nav-link.active {
-  color: #3498db; /* INSTRUKSI: Ubah warna saat hover/active */
+  color: var(--primary-color); /* INSTRUKSI: Ubah warna saat hover/active */
 }
 
 /* Underline effect untuk active/hover nav links */
@@ -196,7 +273,7 @@ body {
   left: 0;
   width: 0; /* Start width = 0 */
   height: 2px; /* INSTRUKSI: Ubah tinggi underline */
-  background: #3498db; /* INSTRUKSI: Ubah warna underline */
+  background: var(--primary-color); /* INSTRUKSI: Ubah warna underline */
   transition: width 0.3s ease; /* EFEK: Animasi width */
 }
 
@@ -215,32 +292,26 @@ body {
 .bar {
   width: 25px; /* INSTRUKSI: Ubah lebar garis hamburger */
   height: 3px; /* INSTRUKSI: Ubah tinggi garis */
-  background: #333; /* INSTRUKSI: Ubah warna garis */
+  background: var(--text-color); /* INSTRUKSI: Ubah warna garis (terang/gelap) */
   margin: 3px 0; /* Spacing antar garis */
   transition: 0.3s; /* EFEK: Smooth animation */
 }
 
 /* ===================================
-   3. HERO SECTION
+   3. HERO SECTION (IMPROVED!)
    =================================== 
-   
-   PENJELASAN:
-   - Landing page utama dengan background gradient
-   - Full viewport height (100vh)
-   - Flexbox untuk center alignment
-   
-   INSTRUKSI KUSTOMISASI:
-   - Ganti warna gradient di .hero
-   - Ubah min-height jika ingin lebih pendek/tinggi
-   - Adjust spacing dan ukuran text
 */
 
 .hero {
   min-height: 100vh; /* EFEK: Full screen height */
   display: flex;
   align-items: center; /* EFEK: Vertical center */
-  /* INSTRUKSI: Ganti warna gradient di sini */
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* INSTRUKSI: Ganti warna gradient di sini (menggunakan variabel) */
+  background: linear-gradient(
+    135deg,
+    var(--hero-start) 0%,
+    var(--hero-end) 100%
+  );
   color: white; /* INSTRUKSI: Warna text di hero */
   position: relative;
   overflow: hidden;
@@ -270,6 +341,36 @@ body {
   z-index: 2;
 }
 
+/* ===================================
+   IMPROVISASI: Style untuk "Blobs"
+   ===================================
+*/
+.hero-shape {
+  position: absolute;
+  border-radius: 50%;
+  /* Menggunakan warna aksen (Teal) dengan opacity rendah */
+  background: var(--secondary-color);
+  opacity: 0.3;
+  filter: blur(80px); /* Ini yang membuatnya terlihat "blobby" */
+  z-index: 1; /* Di bawah konten, di atas background */
+}
+
+.shape-1 {
+  width: 400px;
+  height: 400px;
+  top: 10%;
+  left: 5%;
+  animation: moveBlob1 15s ease-in-out infinite;
+}
+
+.shape-2 {
+  width: 300px;
+  height: 300px;
+  bottom: 15%;
+  left: 20%;
+  animation: moveBlob2 12s ease-in-out infinite;
+}
+
 /* Foto profil styling */
 .hero-image {
   text-align: center;
@@ -281,16 +382,33 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 5px solid rgba(255, 255, 255, 0.3);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+  
+  /* ===================================
+    IMPROVISASI: Tambahkan animasi float
+    ===================================
+  */
+  animation: float 4s ease-in-out infinite;
 }
 
 .profile-img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) translateY(-5px); /* Efek hover lebih dinamis */
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.3); /* Shadow lebih kuat */
 }
 
 /* Hero content area - bagian kiri */
 .hero-content {
   text-align: left; /* INSTRUKSI: 'center' untuk tengah, 'right' untuk kanan */
+  
+  /* ===================================
+    IMPROVISASI: Tambahkan animasi fade-in
+    ===================================
+  */
+  opacity: 0; /* Mulai dari transparan */
+  /* Menggunakan animasi fadeInUp dari script.js */
+  animation: fadeInUp 0.8s ease 0.5s forwards; 
+  /* 0.8s durasi, 0.5s delay, forwards (tetap di state akhir) */
 }
 
 /* Judul utama hero (nama) */
@@ -303,7 +421,11 @@ body {
 
 /* Highlight nama (warna berbeda) */
 .highlight {
-  color: #ffd700; /* INSTRUKSI: Ganti warna highlight (gold/kuning emas) */
+  /* ===================================
+    IMPROVISASI: Diubah menjadi Putih untuk tampilan profesional
+    ===================================
+  */
+  color: #FFFFFF;
 }
 
 /* Subtitle hero (profesi dengan typing effect) */
@@ -316,7 +438,11 @@ body {
 /* ANIMASI: Cursor typing effect (kedip-kedip) */
 .cursor {
   display: inline-block;
-  background-color: #ffd700; /* INSTRUKSI: Warna cursor (match dengan highlight) */
+  /* ===================================
+    IMPROVISASI: Diubah menjadi Putih agar serasi dengan highlight
+    ===================================
+  */
+  background-color: #FFFFFF; 
   margin-left: 3px; /* EFEK: Jarak dari text */
   width: 3px; /* INSTRUKSI: Lebar cursor */
   animation: blink 1s infinite; /* EFEK: Animasi kedip setiap 1 detik */
@@ -363,6 +489,7 @@ body {
   width: 50px; /* INSTRUKSI: Ukuran icon (lebar) */
   height: 50px; /* INSTRUKSI: Ukuran icon (tinggi) */
   background: rgba(255, 255, 255, 0.1); /* EFEK: Background semi-transparan */
+  backdrop-filter: blur(5px); /* EFEK: Glass effect mini */
   color: white; /* INSTRUKSI: Warna icon */
   border-radius: 50%; /* EFEK: Bulat sempurna */
   font-size: 20px; /* INSTRUKSI: Ukuran icon */
@@ -378,7 +505,7 @@ body {
     255,
     0.2
   ); /* EFEK: Background lebih terang saat hover */
-  transform: translateY(-3px); /* EFEK: Naik sedikit ke atas */
+  transform: translateY(-5px) scale(1.1); /* EFEK: Efek hover lebih dinamis */
 }
 
 /* Scroll indicator (panah ke bawah) */
@@ -417,44 +544,47 @@ body {
 /* ===================================
    4. BUTTON STYLES
    =================================== 
-   
-   PENJELASAN:
-   - Styling untuk semua tombol di website
-   - Ada 3 variants: primary, secondary, outline
-   - Hover effects dan transitions
-   
-   INSTRUKSI KUSTOMISASI:
-   - Ganti warna tombol sesuai branding
-   - Adjust padding untuk ukuran berbeda
-   - Tambah variant baru jika perlu
 */
 
 /* Base button styling */
 .btn {
   display: inline-block;
-  padding: 12px 30px; /* INSTRUKSI: Padding (vertikal horizontal) */
-  border-radius: 5px; /* INSTRUKSI: Kelengkungan sudut */
+  padding: 14px 32px; /* INSTRUKSI: Padding (vertikal horizontal) sedikit lebih besar */
+  border-radius: var(
+    --border-radius-sm
+  ); /* INSTRUKSI: Kelengkungan sudut dari variabel */
   text-decoration: none;
   font-weight: 600; /* PENJELASAN: 600 = Semi-bold */
   text-align: center;
   transition: all 0.3s ease; /* EFEK: Smooth hover effect */
   border: 2px solid transparent; /* EFEK: Border untuk outline variant */
   cursor: pointer;
-  font-size: 16px; /* INSTRUKSI: Ukuran text */
+  font-size: 15px; /* INSTRUKSI: Ukuran text */
+  text-transform: uppercase; /* EFEK: Teks kapital untuk style modern */
+  letter-spacing: 0.5px; /* EFEK: Spasi antar huruf */
 }
 
-/* Primary button (biru) */
+/* Primary button (Indigo) */
 .btn-primary {
-  background: #3498db; /* INSTRUKSI: Warna background (biru) */
+  background: var(--primary-color); /* INSTRUKSI: Warna background (Indigo) */
   color: white; /* INSTRUKSI: Warna text */
-  border-color: #3498db; /* INSTRUKSI: Warna border (match background) */
+  border-color: var(
+    --primary-color
+  ); /* INSTRUKSI: Warna border (match background) */
+  /* INSTRUKSI: Shadow diubah ke variabel */
+  box-shadow: 0 4px 15px var(--shadow-color);
 }
 
-/* Hover effect primary button - berubah jadi outline */
+/* Hover effect primary button - berubah jadi aksen (Teal) */
 .btn-primary:hover {
-  background: transparent; /* EFEK: Background hilang saat hover */
-  color: #3498db; /* EFEK: Text jadi warna primary */
-  border-color: #3498db; /* EFEK: Border tetap */
+  background: var(
+    --secondary-color
+  ); /* EFEK: Ganti ke warna aksen (Teal) saat hover */
+  border-color: var(--secondary-color); /* EFEK: Ganti border juga */
+  color: white; /* EFEK: Text tetap putih */
+  transform: translateY(-3px); /* EFEK: Naik sedikit */
+  /* INSTRUKSI: Shadow diubah ke warna Teal (20, 184, 166) */
+  box-shadow: 0 6px 20px rgba(20, 184, 166, 0.4);
 }
 
 /* Secondary button (outline putih) */
@@ -467,22 +597,13 @@ body {
 /* Hover effect secondary button - filled */
 .btn-secondary:hover {
   background: white; /* EFEK: Background muncul saat hover */
-  color: #333; /* EFEK: Text jadi gelap */
+  color: var(--primary-color); /* EFEK: Text jadi warna primary (Indigo) */
+  transform: translateY(-3px); /* EFEK: Naik sedikit */
 }
 
 /* ===================================
    5. SECTION GENERAL STYLES
    =================================== 
-   
-   PENJELASAN:
-   - Styling umum untuk semua section
-   - Title styling dengan underline effect
-   - Consistent spacing dan typography
-   
-   INSTRUKSI KUSTOMISASI:
-   - Ubah padding section untuk spacing berbeda
-   - Ganti warna underline title
-   - Adjust ukuran title dan subtitle
 */
 
 /* Styling umum untuk semua section */
@@ -500,7 +621,7 @@ section {
 .section-title h2 {
   font-size: 2.5rem; /* INSTRUKSI: Ukuran judul section */
   font-weight: 700; /* PENJELASAN: Bold */
-  color: #2c3e50; /* INSTRUKSI: Warna judul */
+  color: var(--text-color); /* INSTRUKSI: Warna judul (terang/gelap) */
   margin-bottom: 15px; /* INSTRUKSI: Jarak ke subtitle */
   position: relative; /* EFEK: Untuk underline effect */
   display: inline-block;
@@ -513,15 +634,20 @@ section {
   bottom: -10px; /* INSTRUKSI: Posisi garis di bawah text */
   left: 50%; /* EFEK: Center horizontal */
   transform: translateX(-50%); /* EFEK: Perfect center */
-  width: 60px; /* INSTRUKSI: Panjang garis */
-  height: 3px; /* INSTRUKSI: Ketebalan garis */
-  background: #3498db; /* INSTRUKSI: Warna garis (match primary color) */
+  width: 80px; /* INSTRUKSI: Panjang garis (lebih panjang) */
+  height: 4px; /* INSTRUKSI: Ketebalan garis (lebih tebal) */
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  ); /* INSTRUKSI: Warna garis (gradient Indigo-Teal) */
+  border-radius: 2px; /* EFEK: Sudut tumpul */
 }
 
 /* Subtitle/deskripsi section */
 .section-title p {
   font-size: 1.1rem; /* INSTRUKSI: Ukuran subtitle */
-  color: #666; /* INSTRUKSI: Warna text (abu-abu) */
+  color: var(--muted-color); /* INSTRUKSI: Warna text (terang/gelap) */
   max-width: 600px; /* INSTRUKSI: Lebar maksimal untuk readability */
   margin: 0 auto; /* EFEK: Center alignment */
 }
@@ -529,21 +655,12 @@ section {
 /* ===================================
    6. ABOUT SECTION
    =================================== 
-   
-   PENJELASAN:
-   - Section tentang diri sendiri
-   - Layout 2 kolom: text dan info cards
-   - Background warna berbeda untuk kontras
-   
-   INSTRUKSI KUSTOMISASI:
-   - Ganti background color
-   - Adjust grid columns ratio (2fr 1fr)
-   - Edit spacing dan alignment
 */
 
-/* About section dengan background abu-abu terang */
+/* About section dengan background gelap */
 .about {
-  background: #f8f9fa; /* INSTRUKSI: Warna background section */
+  /* INSTRUKSI: Dihapus agar menyatu dengan body */
+  /* background: var(--light-bg); */
 }
 
 /* Container content about - 2 kolom layout */
@@ -557,7 +674,7 @@ section {
 /* Judul dalam about-text */
 .about-text h3 {
   font-size: 1.8rem; /* INSTRUKSI: Ukuran judul about */
-  color: #2c3e50; /* INSTRUKSI: Warna judul */
+  color: var(--text-color); /* INSTRUKSI: Warna judul */
   margin-bottom: 20px; /* INSTRUKSI: Jarak ke paragraf */
 }
 
@@ -565,7 +682,7 @@ section {
 .about-text p {
   font-size: 1.1rem; /* INSTRUKSI: Ukuran text */
   line-height: 1.8; /* EFEK: Jarak antar baris untuk readability */
-  color: #666; /* INSTRUKSI: Warna text */
+  color: var(--muted-color); /* INSTRUKSI: Warna text */
   margin-bottom: 30px; /* INSTRUKSI: Jarak antar paragraf */
 }
 
@@ -579,42 +696,33 @@ section {
   display: flex; /* EFEK: Horizontal layout (label : value) */
   margin-bottom: 10px; /* INSTRUKSI: Jarak antar items */
   padding: 10px 0; /* INSTRUKSI: Padding vertikal */
-  border-bottom: 1px solid #eee; /* EFEK: Garis pembatas antar items */
+  border-bottom: 1px solid
+    var(--card-border-color); /* EFEK: Garis pembatas (terang/gelap) */
 }
 
 /* Label detail (Nama:, Email:, dll) */
 .detail-label {
   font-weight: 600; /* PENJELASAN: Semi-bold */
-  color: #2c3e50; /* INSTRUKSI: Warna label */
+  color: var(--text-color); /* INSTRUKSI: Warna label */
   min-width: 120px; /* INSTRUKSI: Lebar minimum untuk alignment */
 }
 
 /* Value detail (isi dari label) */
 .detail-value {
-  color: #666; /* INSTRUKSI: Warna value */
+  color: var(--muted-color); /* INSTRUKSI: Warna value */
 }
 
 /* Gambar di kolom kanan about */
 .about-image img {
   width: 100%; /* EFEK: Full width container */
-  border-radius: 10px; /* INSTRUKSI: Kelengkungan sudut */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* EFEK: Shadow untuk depth */
+  border-radius: var(--border-radius-md); /* INSTRUKSI: Kelengkungan sudut */
+  /* IMPROVISASI: Ganti shadow dengan border agar konsisten */
+  border: 1px solid var(--card-border-color);
 }
 
 /* ===================================
-   7. SKILLS SECTION
+   7. SKILLS SECTION (IMPROVED!)
    =================================== 
-   
-   PENJELASAN:
-   - Menampilkan skills dalam grid layout
-   - Ada 2 kategori: Technical Skills dan Professional Skills
-   - Icon, judul, deskripsi, dan progress bar
-   - Hover effects untuk interaktivitas
-   
-   INSTRUKSI KUSTOMISASI:
-   - Ubah grid columns untuk jumlah item per row
-   - Ganti warna icon dan progress bar
-   - Adjust spacing dan sizing
 */
 
 /* Container untuk skills content */
@@ -631,18 +739,17 @@ section {
 /* Judul kategori */
 .skills-category h3 {
   font-size: 1.8rem; /* INSTRUKSI: Ukuran judul kategori */
-  color: #2c3e50; /* INSTRUKSI: Warna judul */
+  color: var(--text-color); /* INSTRUKSI: Warna judul */
   margin-bottom: 30px; /* INSTRUKSI: Jarak ke skills grid */
   text-align: center; /* EFEK: Center alignment */
 }
 
 /* Grid untuk technical skills (icon-based) */
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(250px, 1fr)
-  ); /* INSTRUKSI: Auto-fit dengan min 250px */
+  /* IMPROVISASI: Diubah dari 'grid' ke 'flex' */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 30px; /* INSTRUKSI: Jarak antar items */
 }
 
@@ -650,28 +757,77 @@ section {
 .skill-item {
   text-align: center; /* EFEK: Center alignment untuk content */
   padding: 20px; /* INSTRUKSI: Padding dalam card */
-  background: white; /* INSTRUKSI: Background card */
-  border-radius: 10px; /* INSTRUKSI: Kelengkungan sudut */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* EFEK: Shadow untuk depth */
-  transition: transform 0.3s ease; /* EFEK: Smooth hover effect */
+  background: var(--light-bg); /* INSTRUKSI: Background card (terang/gelap) */
+  border-radius: var(
+    --border-radius-md
+  ); /* INSTRUKSI: Kelengkungan sudut (dari var) */
+  border: 1px solid var(--card-border-color); /* EFEK: Border (terang/gelap) */
+  box-shadow: none; /* EFEK: Hilangkan shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* EFEK: Smooth hover effect */
+  
+  /* IMPROVISASI: Ukuran untuk flexbox */
+  flex-grow: 1; 
+  flex-basis: 250px; 
+  max-width: 350px; 
 }
 
 /* Hover effect untuk skill card */
 .skill-item:hover {
-  transform: translateY(-5px); /* EFEK: Naik sedikit saat hover */
+  transform: translateY(-8px); /* EFEK: Naik sedikit saat hover (lebih banyak) */
+  border-color: var(--primary-color); /* EFEK: Border highlight (Indigo) */
+  /* IMPROVISASI: Glow effect menggunakan variabel */
+  box-shadow: 0 0 20px var(--shadow-color);
+}
+
+/* ===================================
+   IMPROVISASI: Ubah warna SEMUA ikon saat hover
+   ===================================
+*/
+.skill-item:hover .skill-icon {
+  /* Mengubah ikon Font Awesome (HTML, JS, Python) menjadi Teal */
+  color: var(--secondary-color);
 }
 
 /* Icon skill (Font Awesome) */
 .skill-icon {
   font-size: 3rem; /* INSTRUKSI: Ukuran icon */
-  color: #3498db; /* INSTRUKSI: Warna icon (primary color) */
+  color: var(--primary-color); /* INSTRUKSI: Warna icon (primary color) */
   margin-bottom: 15px; /* INSTRUKSI: Jarak ke judul */
+  transition: color 0.3s ease; /* Transisi untuk hover */
+}
+
+/* ===================================
+   IMPROVISASI: Style untuk Ikon SVG Kustom C++ (DIPERBAIKI)
+   ===================================
+*/
+
+/* Style untuk INLINE SVG (jika Anda pakai di masa depan) */
+.skill-icon .skill-svg-icon {
+  width: 3rem;
+  height: 3rem;
+  fill: currentColor; 
+  transition: fill 0.3s ease;
+}
+
+/* Style untuk <img> C++ (yang Anda gunakan) */
+.skill-icon .custom-icon {
+  width: 3rem;
+  height: 3rem;
+  /* Terapkan filter warna primer (Indigo) */
+  filter: var(--primary-color-filter);
+  transition: filter 0.3s ease;
+}
+
+/* Efek hover untuk ikon C++ <img> */
+.skill-item:hover .skill-icon .custom-icon {
+  /* Ganti ke filter warna sekunder (Teal) */
+  filter: var(--secondary-color-filter);
 }
 
 /* Judul skill */
 .skill-item h4 {
   font-size: 1.2rem; /* INSTRUKSI: Ukuran judul skill */
-  color: #2c3e50; /* INSTRUKSI: Warna judul */
+  color: var(--text-color); /* INSTRUKSI: Warna judul (terang) */
   margin-bottom: 15px; /* INSTRUKSI: Jarak ke progress bar */
 }
 
@@ -679,8 +835,12 @@ section {
 .skill-bar {
   width: 100%; /* EFEK: Full width */
   height: 8px; /* INSTRUKSI: Tinggi progress bar */
-  background: #eee; /* INSTRUKSI: Warna background bar (abu-abu terang) */
-  border-radius: 4px; /* INSTRUKSI: Kelengkungan sudut */
+  background: var(
+    --card-border-color
+  ); /* INSTRUKSI: Warna background bar (gelap/terang) */
+  border-radius: var(
+    --border-radius-sm
+  ); /* INSTRUKSI: Kelengkungan sudut (dari var) */
   overflow: hidden; /* EFEK: Hide overflow untuk smooth progress */
   margin-bottom: 10px; /* INSTRUKSI: Jarak ke percentage */
 }
@@ -690,10 +850,12 @@ section {
   height: 100%; /* EFEK: Full height parent */
   background: linear-gradient(
     90deg,
-    #3498db,
-    #2980b9
-  ); /* INSTRUKSI: Gradient warna progress */
-  border-radius: 4px; /* INSTRUKSI: Match parent radius */
+    var(--primary-color),
+    var(--secondary-color)
+  ); /* INSTRUKSI: Gradient warna progress (Indigo ke Teal) */
+  border-radius: var(
+    --border-radius-sm
+  ); /* INSTRUKSI: Match parent radius (dari var) */
   width: 0; /* PENJELASAN: Initial 0, diset via JS dengan data-width */
   transition: width 1s ease-in-out; /* EFEK: Smooth animation saat width berubah */
 }
@@ -701,16 +863,15 @@ section {
 /* Percentage text untuk skill */
 .skill-percentage {
   font-weight: 600; /* PENJELASAN: Semi-bold */
-  color: #3498db; /* INSTRUKSI: Warna percentage (match progress bar) */
+  color: var(--primary-color); /* INSTRUKSI: Warna percentage (match progress bar) */
 }
 
 /* Container untuk soft skills (professional skills) */
 .soft-skills {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(200px, 1fr)
-  ); /* INSTRUKSI: Auto-fit dengan min 200px */
+  /* IMPROVISASI: Diubah dari 'grid' ke 'flex' */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px; /* INSTRUKSI: Jarak antar items */
 }
 
@@ -720,49 +881,55 @@ section {
   align-items: center; /* EFEK: Vertical center */
   gap: 15px; /* INSTRUKSI: Jarak antara icon dan text */
   padding: 20px; /* INSTRUKSI: Padding dalam card */
-  background: white; /* INSTRUKSI: Background card */
-  border-radius: 10px; /* INSTRUKSI: Kelengkungan sudut */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* EFEK: Shadow untuk depth */
-  transition: transform 0.3s ease; /* EFEK: Smooth hover effect */
+  background: var(--light-bg); /* INSTRUKSI: Background card (terang/gelap) */
+  border-radius: var(
+    --border-radius-md
+  ); /* INSTRUKSI: Kelengkungan sudut (dari var) */
+  border: 1px solid var(--card-border-color); /* EFEK: Border (terang/gelap) */
+  box-shadow: none; /* EFEK: Hilangkan shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* EFEK: Smooth hover effect */
+  
+  /* IMPROVISASI: Ukuran untuk flexbox */
+  flex-grow: 1; 
+  flex-basis: 200px; 
+  max-width: 300px; 
 }
 
 /* Hover effect untuk soft skill card */
 .soft-skill-item:hover {
-  transform: translateY(-5px); /* EFEK: Naik sedikit saat hover */
+  transform: translateY(-8px); /* EFEK: Naik sedikit saat hover */
+  border-color: var(--primary-color); /* EFEK: Border highlight (Indigo) */
+  /* IMPROVISASI: Glow effect menggunakan variabel */
+  box-shadow: 0 0 20px var(--shadow-color);
 }
 
 /* Icon untuk soft skill */
 .soft-skill-item i {
   font-size: 1.5rem; /* INSTRUKSI: Ukuran icon */
-  color: #3498db; /* INSTRUKSI: Warna icon */
+  color: var(--primary-color); /* INSTRUKSI: Warna icon */
+  transition: color 0.3s ease; /* Transisi untuk hover */
+}
+
+/* IMPROVISASI: Warna ikon soft skill saat hover */
+.soft-skill-item:hover i {
+  color: var(--secondary-color); /* Berubah menjadi Teal */
 }
 
 /* Text untuk soft skill */
 .soft-skill-item span {
   font-weight: 500; /* PENJELASAN: Medium weight */
-  color: #2c3e50; /* INSTRUKSI: Warna text */
+  color: var(--text-color); /* INSTRUKSI: Warna text */
 }
 
 /* ===================================
-   8. PORTFOLIO SECTION
+   8. PORTFOLIO SECTION (IMPROVED!)
    =================================== 
-   
-   PENJELASAN:
-   - Menampilkan portfolio projects dalam grid
-   - Filter buttons untuk kategori (All, Web, Mobile, Design)
-   - Hover effects dengan overlay dan zoom
-   - Clickable untuk view details
-   
-   INSTRUKSI KUSTOMISASI:
-   - Tambah kategori filter baru di HTML dan JavaScript
-   - Ubah grid columns untuk jumlah items per row
-   - Ganti warna overlay dan buttons
-   - Adjust hover effects
 */
 
 /* Portfolio section dengan background */
 .portfolio {
-  background: #f8f9fa; /* INSTRUKSI: Warna background section */
+  /* INSTRUKSI: Dihapus agar menyatu dengan body */
+  /* background: var(--light-bg); */
 }
 
 /* Container untuk filter buttons */
@@ -776,10 +943,10 @@ section {
 /* Individual filter button */
 .filter-btn {
   padding: 10px 25px; /* INSTRUKSI: Padding button */
-  background: white; /* INSTRUKSI: Background default */
-  border: 2px solid #3498db; /* INSTRUKSI: Border color */
-  color: #3498db; /* INSTRUKSI: Text color */
-  border-radius: 25px; /* INSTRUKSI: Rounded button */
+  background: transparent; /* INSTRUKSI: Background transparan */
+  border: 2px solid var(--primary-color); /* INSTRUKSI: Border color (Indigo) */
+  color: var(--primary-color); /* INSTRUKSI: Text color (Indigo) */
+  border-radius: 25px; /* INSTRUKSI: Rounded button (sudah modern) */
   cursor: pointer; /* EFEK: Pointer cursor saat hover */
   transition: all 0.3s ease; /* EFEK: Smooth hover effect */
   font-weight: 500; /* PENJELASAN: Medium weight */
@@ -788,8 +955,9 @@ section {
 /* Hover dan active state untuk filter button */
 .filter-btn:hover,
 .filter-btn.active {
-  background: #3498db; /* EFEK: Background berubah saat hover/active */
+  background: var(--primary-color); /* EFEK: Background berubah saat hover/active */
   color: white; /* EFEK: Text berubah putih */
+  transform: translateY(-2px); /* EFEK: Naik sedikit */
 }
 
 /* Grid untuk portfolio items */
@@ -797,28 +965,47 @@ section {
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(350px, 1fr)
-  ); /* INSTRUKSI: Auto-fit dengan min 350px */
+    minmax(320px, 1fr)
+  ); /* INSTRUKSI: Ubah ke 320px untuk responsive mobile lebih baik */
   gap: 30px; /* INSTRUKSI: Jarak antar items */
 }
 
-/* Individual portfolio item card */
+/* ===================================
+   IMPROVISASI: Style untuk portfolio-item (sebagai <button>)
+  ===================================
+*/
 .portfolio-item {
-  background: white; /* INSTRUKSI: Background card */
-  border-radius: 10px; /* INSTRUKSI: Kelengkungan sudut */
+  /* Reset style <button> */
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer; /* EFEK: Pointer cursor */
+
+  /* Style kartu asli */
+  background: var(--light-bg); /* INSTRUKSI: Background card (terang/gelap) */
+  border-radius: var(
+    --border-radius-md
+  ); /* INSTRUKSI: Kelengkungan sudut (dari var) */
   overflow: hidden; /* EFEK: Hide overflow untuk image zoom */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* EFEK: Shadow untuk depth */
-  transition: transform 0.3s ease; /* EFEK: Smooth hover effect */
+  border: 1px solid var(--card-border-color); /* EFEK: Border (terang/gelap) */
+  box-shadow: none; /* EFEK: Hilangkan shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* EFEK: Smooth hover effect */
 }
 
 /* Hover effect untuk portfolio card */
 .portfolio-item:hover {
   transform: translateY(-10px); /* EFEK: Naik saat hover */
+  border-color: var(--primary-color); /* EFEK: Border highlight (Indigo) */
+  /* IMPROVISASI: Glow effect menggunakan variabel */
+  box-shadow: 0 0 20px var(--shadow-color);
 }
 
 /* Container image portfolio */
 .portfolio-image {
-  position: relative; /* PENJELASAN: Untuk overlay positioning */
+  position: relative; /* PENJELASAN: Untuk positioning */
   overflow: hidden; /* EFEK: Hide overflow untuk zoom effect */
   height: 250px; /* INSTRUKSI: Tinggi fixed untuk consistency */
 }
@@ -836,19 +1023,19 @@ section {
   transform: scale(1.1); /* EFEK: Zoom 110% saat hover */
 }
 
-/* Overlay yang muncul saat hover (background biru transparan) */
+/* Overlay yang muncul saat hover (gradient modern) */
 .portfolio-overlay {
   position: absolute; /* PENJELASAN: Absolute positioning di atas image */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(
-    52,
-    152,
-    219,
-    0.9
-  ); /* INSTRUKSI: Warna overlay dengan opacity */
+  /* INSTRUKSI: Warna overlay (gradient Indigo-Teal) */
+  background: linear-gradient(
+    135deg,
+    rgba(67, 56, 202, 0.9),
+    rgba(20, 184, 166, 0.9)
+  );
   display: flex;
   align-items: center; /* EFEK: Vertical center */
   justify-content: center; /* EFEK: Horizontal center */
@@ -878,19 +1065,18 @@ section {
   margin-top: 20px; /* INSTRUKSI: Jarak dari judul */
 }
 
-/* Individual portfolio link */
-.portfolio-link {
-  display: inline-block;
-  margin: 0 10px; /* INSTRUKSI: Jarak antar links */
-  color: white; /* INSTRUKSI: Warna icon */
-  font-size: 1.5rem; /* INSTRUKSI: Ukuran icon */
-  text-decoration: none;
-  transition: transform 0.3s ease; /* EFEK: Smooth hover effect */
+/* ===================================
+   IMPROVISASI: Mengganti link dengan ikon search-plus
+  ===================================
+*/
+.portfolio-links i {
+  font-size: 2rem;
+  color: white;
+  transition: transform 0.3s ease;
 }
 
-/* Hover effect untuk link */
-.portfolio-link:hover {
-  transform: scale(1.2); /* EFEK: Zoom icon saat hover */
+.portfolio-item:hover .portfolio-links i {
+  transform: scale(1.2);
 }
 
 /* Content area di bawah image (judul, deskripsi, tags) */
@@ -901,13 +1087,13 @@ section {
 /* Judul portfolio di content area */
 .portfolio-content h4 {
   font-size: 1.3rem; /* INSTRUKSI: Ukuran judul */
-  color: #2c3e50; /* INSTRUKSI: Warna judul */
+  color: var(--text-color); /* INSTRUKSI: Warna judul */
   margin-bottom: 10px; /* INSTRUKSI: Jarak ke deskripsi */
 }
 
 /* Deskripsi portfolio */
 .portfolio-content p {
-  color: #666; /* INSTRUKSI: Warna text */
+  color: var(--muted-color); /* INSTRUKSI: Warna text */
   line-height: 1.6; /* EFEK: Jarak antar baris */
   margin-bottom: 15px; /* INSTRUKSI: Jarak ke technology tags */
 }
@@ -922,8 +1108,8 @@ section {
 /* Individual technology tag */
 .tech-tag {
   padding: 5px 12px; /* INSTRUKSI: Padding tag */
-  background: #e8f4fd; /* INSTRUKSI: Background tag (biru muda) */
-  color: #3498db; /* INSTRUKSI: Warna text tag */
+  background: var(--tag-bg); /* INSTRUKSI: Background tag (variabel) */
+  color: var(--tag-text); /* INSTRUKSI: Warna text tag (variabel) */
   border-radius: 15px; /* INSTRUKSI: Rounded tag */
   font-size: 0.9rem; /* INSTRUKSI: Ukuran text */
   font-weight: 500; /* PENJELASAN: Medium weight */
@@ -932,17 +1118,6 @@ section {
 /* ===================================
    9. EDUCATION SECTION
    =================================== 
-   
-   PENJELASAN:
-   - Section untuk menampilkan riwayat pendidikan
-   - Card layout dengan icon dan informasi lengkap
-   - Responsive dan modern design
-   
-   INSTRUKSI KUSTOMISASI:
-   - Ubah warna icon dan card
-   - Adjust spacing antar cards
-   - Ganti ukuran font
-   - Sesuaikan shadow dan border radius
 */
 
 /* Container untuk education content */
@@ -959,18 +1134,24 @@ section {
   display: flex; /* PENJELASAN: Flexbox untuk layout */
   align-items: flex-start; /* EFEK: Align ke atas */
   gap: 25px; /* INSTRUKSI: Jarak antara icon dan info */
-  background: white; /* INSTRUKSI: Background putih */
+  background: var(--light-bg); /* INSTRUKSI: Background card (terang/gelap) */
   padding: 30px; /* INSTRUKSI: Padding dalam card */
-  border-radius: 15px; /* INSTRUKSI: Sudut melengkung */
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* EFEK: Shadow halus */
+  border-radius: var(
+    --border-radius-md
+  ); /* INSTRUKSI: Sudut melengkung (dari var) */
+  border: 1px solid var(--card-border-color); /* EFEK: Border (terang/gelap) */
+  box-shadow: none; /* EFEK: Hilangkan shadow */
   transition: all 0.3s ease; /* EFEK: Smooth transition */
   border-left: 4px solid var(--primary-color); /* INSTRUKSI: Border kiri aksen */
 }
 
 /* Hover effect untuk card */
 .education-card:hover {
-  transform: translateY(-5px); /* EFEK: Naik sedikit */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* EFEK: Shadow lebih dalam */
+  transform: translateY(-8px); /* EFEK: Naik sedikit */
+  border-color: var(--primary-color); /* EFEK: Border highlight (kecuali kiri) */
+  border-left: 4px solid var(--primary-color); /* Jaga border kiri */
+  /* IMPROVISASI: Glow effect menggunakan variabel */
+  box-shadow: 0 0 20px var(--shadow-color);
 }
 
 /* Icon container */
@@ -982,7 +1163,7 @@ section {
     135deg,
     var(--primary-color),
     var(--secondary-color)
-  ); /* INSTRUKSI: Gradient background */
+  ); /* INSTRUKSI: Gradient background (Indigo-Teal) */
   border-radius: 50%; /* EFEK: Bentuk bulat */
   display: flex; /* PENJELASAN: Flex untuk center icon */
   align-items: center; /* EFEK: Center vertical */
@@ -1007,7 +1188,7 @@ section {
 /* Nama institusi */
 .education-info h4 {
   font-size: 1.1rem; /* INSTRUKSI: Ukuran font */
-  color: var(--primary-color); /* INSTRUKSI: Warna primary */
+  color: var(--primary-color); /* INSTRUKSI: Warna primary (Indigo) */
   margin-bottom: 15px; /* INSTRUKSI: Jarak ke elemen bawah */
   font-weight: 500; /* PENJELASAN: Medium weight */
 }
@@ -1015,7 +1196,7 @@ section {
 /* Styling untuk major, year, gpa */
 .education-info p {
   font-size: 0.95rem; /* INSTRUKSI: Ukuran font */
-  color: #666; /* INSTRUKSI: Warna abu-abu */
+  color: var(--muted-color); /* INSTRUKSI: Warna abu-abu */
   margin-bottom: 8px; /* INSTRUKSI: Jarak antar paragraf */
   display: flex; /* PENJELASAN: Flex untuk icon */
   align-items: center; /* EFEK: Center vertical */
@@ -1037,7 +1218,7 @@ section {
 /* Item dalam list prestasi */
 .education-achievements li {
   font-size: 0.9rem; /* INSTRUKSI: Ukuran font */
-  color: #555; /* INSTRUKSI: Warna text */
+  color: var(--body-color); /* INSTRUKSI: Warna text */
   margin-bottom: 6px; /* INSTRUKSI: Jarak antar item */
   line-height: 1.5; /* EFEK: Line spacing */
 }
@@ -1052,18 +1233,6 @@ section {
 /* ===================================
    10. EXPERIENCE SECTION
    =================================== 
-   
-   PENJELASAN:
-   - Timeline vertical untuk pengalaman kerja/pendidikan
-   - Garis timeline di tengah dengan bullet points
-   - Date di kiri, content di kanan
-   - Styling yang clean dan professional
-   
-   INSTRUKSI KUSTOMISASI:
-   - Ubah warna timeline dan bullets
-   - Adjust spacing antar items
-   - Ganti position date (kiri/kanan)
-   - Sesuaikan card shadow dan radius
 */
 
 /* Container untuk experience content */
@@ -1086,7 +1255,7 @@ section {
   top: 0;
   bottom: 0;
   width: 2px; /* INSTRUKSI: Ketebalan garis */
-  background: #3498db; /* INSTRUKSI: Warna garis timeline */
+  background: var(--primary-color); /* INSTRUKSI: Warna garis timeline (Indigo) */
 }
 
 /* Individual timeline item */
@@ -1105,9 +1274,10 @@ section {
   width: 16px; /* INSTRUKSI: Ukuran bullet */
   height: 16px; /* INSTRUKSI: Ukuran bullet */
   border-radius: 50%; /* EFEK: Bulat sempurna */
-  background: #3498db; /* INSTRUKSI: Warna bullet */
-  border: 3px solid white; /* EFEK: Border putih untuk kontras */
-  box-shadow: 0 0 0 3px #3498db; /* EFEK: Outer ring */
+  background: var(--primary-color); /* INSTRUKSI: Warna bullet (Indigo) */
+  border: 3px solid var(--white-bg); /* EFEK: Border (terang/gelap) untuk kontras */
+  box-shadow: 0 0 0 3px var(--primary-color); /* EFEK: Outer ring (Indigo) */
+  transition: all 0.3s ease; /* EFEK: Transisi untuk hover */
 }
 
 /* Date label pada timeline */
@@ -1123,7 +1293,7 @@ section {
 .timeline-date span {
   display: inline-block;
   padding: 5px 10px; /* INSTRUKSI: Padding date badge */
-  background: #3498db; /* INSTRUKSI: Background badge */
+  background: var(--primary-color); /* INSTRUKSI: Background badge (Indigo) */
   color: white; /* INSTRUKSI: Warna text */
   border-radius: 15px; /* INSTRUKSI: Rounded badge */
   font-size: 0.9rem; /* INSTRUKSI: Ukuran text */
@@ -1132,29 +1302,47 @@ section {
 
 /* Card content timeline */
 .timeline-content {
-  background: white; /* INSTRUKSI: Background card */
+  background: var(--light-bg); /* INSTRUKSI: Background card (terang/gelap) */
   padding: 25px; /* INSTRUKSI: Padding dalam card */
-  border-radius: 10px; /* INSTRUKSI: Kelengkungan sudut */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* EFEK: Shadow untuk depth */
+  border-radius: var(
+    --border-radius-md
+  ); /* INSTRUKSI: Kelengkungan sudut (dari var) */
+  border: 1px solid var(--card-border-color); /* EFEK: Border (terang/gelap) */
+  box-shadow: none; /* EFEK: Hilangkan shadow */
+  transition: all 0.3s ease; /* EFEK: Transisi untuk hover */
+}
+
+/* EFEK HOVER: Membuat card dan bullet lebih menonjol */
+.timeline-item:hover .timeline-content {
+  transform: translateY(-5px);
+  border-color: var(--primary-color); /* EFEK: Border highlight (Indigo) */
+  /* IMPROVISASI: Glow effect menggunakan variabel */
+  box-shadow: 0 0 20px var(--shadow-color);
+}
+
+.timeline-item:hover::before {
+  transform: scale(1.2); /* Perbesar bullet point */
+  /* IMPROVISASI: Glow effect menggunakan variabel (lebih redup) */
+  box-shadow: 0 0 0 6px var(--shadow-color);
 }
 
 /* Judul posisi/jabatan */
 .timeline-content h3 {
   font-size: 1.5rem; /* INSTRUKSI: Ukuran judul */
-  color: #2c3e50; /* INSTRUKSI: Warna judul */
+  color: var(--text-color); /* INSTRUKSI: Warna judul */
   margin-bottom: 5px; /* INSTRUKSI: Jarak ke company */
 }
 
 /* Company/institusi name */
 .timeline-content h4 {
   font-size: 1.2rem; /* INSTRUKSI: Ukuran company name */
-  color: #3498db; /* INSTRUKSI: Warna company (primary color) */
+  color: var(--primary-color); /* INSTRUKSI: Warna company (Indigo) */
   margin-bottom: 15px; /* INSTRUKSI: Jarak ke deskripsi */
 }
 
 /* Deskripsi pekerjaan */
 .timeline-content p {
-  color: #666; /* INSTRUKSI: Warna text */
+  color: var(--muted-color); /* INSTRUKSI: Warna text */
   line-height: 1.7; /* EFEK: Jarak antar baris */
   margin-bottom: 15px; /* INSTRUKSI: Jarak ke list */
 }
@@ -1170,7 +1358,7 @@ section {
   position: relative; /* PENJELASAN: Untuk custom bullet */
   padding-left: 25px; /* INSTRUKSI: Space untuk custom bullet */
   margin-bottom: 8px; /* INSTRUKSI: Jarak antar items */
-  color: #666; /* INSTRUKSI: Warna text */
+  color: var(--muted-color); /* INSTRUKSI: Warna text */
 }
 
 /* Custom bullet untuk list */
@@ -1178,30 +1366,19 @@ section {
   content: "▶"; /* INSTRUKSI: Icon bullet (bisa ganti: ✓, •, ►, dll) */
   position: absolute;
   left: 0;
-  color: #3498db; /* INSTRUKSI: Warna bullet */
+  color: var(--primary-color); /* INSTRUKSI: Warna bullet (Indigo) */
   font-size: 0.8rem; /* INSTRUKSI: Ukuran bullet */
 }
 
 /* ===================================
    11. CONTACT SECTION
    =================================== 
-   
-   PENJELASAN:
-   - Form kontak dengan validasi
-   - Info kontak dengan icons (email, phone, location)
-   - Layout 2 kolom: form dan contact info
-   - Responsive dan user-friendly
-   
-   INSTRUKSI KUSTOMISASI:
-   - Ganti warna buttons dan inputs
-   - Adjust layout columns ratio
-   - Edit placeholder text di HTML
-   - Sesuaikan validation styling
 */
 
 /* Contact section dengan background */
 .contact {
-  background: #f8f9fa; /* INSTRUKSI: Warna background section */
+  /* INSTRUKSI: Dihapus agar menyatu dengan body */
+  /* background: var(--light-bg); */
 }
 
 /* Container untuk contact content - 2 kolom */
@@ -1214,7 +1391,7 @@ section {
 /* Judul contact info */
 .contact-info h3 {
   font-size: 1.8rem; /* INSTRUKSI: Ukuran judul */
-  color: #2c3e50; /* INSTRUKSI: Warna judul */
+  color: var(--text-color); /* INSTRUKSI: Warna judul */
   margin-bottom: 30px; /* INSTRUKSI: Jarak ke contact items */
 }
 
@@ -1225,9 +1402,12 @@ section {
   gap: 20px; /* INSTRUKSI: Jarak antara icon dan text */
   margin-bottom: 25px; /* INSTRUKSI: Jarak antar items */
   padding: 20px; /* INSTRUKSI: Padding dalam card */
-  background: white; /* INSTRUKSI: Background card */
-  border-radius: 10px; /* INSTRUKSI: Kelengkungan sudut */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* EFEK: Shadow untuk depth */
+  background: var(--light-bg); /* INSTRUKSI: Background card (terang/gelap) */
+  border-radius: var(
+    --border-radius-md
+  ); /* INSTRUKSI: Kelengkungan sudut (dari var) */
+  border: 1px solid var(--card-border-color); /* EFEK: Border (terang/gelap) */
+  box-shadow: none; /* EFEK: Hilangkan shadow */
 }
 
 /* Icon container untuk contact item */
@@ -1237,7 +1417,7 @@ section {
   justify-content: center;
   width: 50px; /* INSTRUKSI: Ukuran icon container */
   height: 50px; /* INSTRUKSI: Ukuran icon container */
-  background: #3498db; /* INSTRUKSI: Background icon (primary color) */
+  background: var(--primary-color); /* INSTRUKSI: Background icon (Indigo) */
   color: white; /* INSTRUKSI: Warna icon */
   border-radius: 50%; /* EFEK: Bulat sempurna */
   font-size: 1.2rem; /* INSTRUKSI: Ukuran icon */
@@ -1246,27 +1426,30 @@ section {
 
 /* Label untuk contact detail (Email, Phone, dll) */
 .contact-details h4 {
-  color: #2c3e50; /* INSTRUKSI: Warna label */
+  color: var(--text-color); /* INSTRUKSI: Warna label */
   margin-bottom: 5px; /* INSTRUKSI: Jarak ke value */
 }
 
 /* Value contact detail (email address, phone number, dll) */
 .contact-details p {
-  color: #666; /* INSTRUKSI: Warna value */
+  color: var(--muted-color); /* INSTRUKSI: Warna value */
 }
 
 /* Container form kontak */
 .contact-form {
-  background: white; /* INSTRUKSI: Background form */
+  background: var(--light-bg); /* INSTRUKSI: Background form (terang/gelap) */
   padding: 40px; /* INSTRUKSI: Padding dalam form */
-  border-radius: 10px; /* INSTRUKSI: Kelengkungan sudut */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* EFEK: Shadow untuk depth */
+  border-radius: var(
+    --border-radius-md
+  ); /* INSTRUKSI: Kelengkungan sudut (dari var) */
+  border: 1px solid var(--card-border-color); /* EFEK: Border (terang/gelap) */
+  box-shadow: none; /* EFEK: Hilangkan shadow */
 }
 
 /* Judul form */
 .contact-form h3 {
   font-size: 1.8rem; /* INSTRUKSI: Ukuran judul */
-  color: #2c3e50; /* INSTRUKSI: Warna judul */
+  color: var(--text-color); /* INSTRUKSI: Warna judul */
   margin-bottom: 30px; /* INSTRUKSI: Jarak ke form fields */
 }
 
@@ -1280,18 +1463,31 @@ section {
 .form-group textarea {
   width: 100%; /* EFEK: Full width */
   padding: 15px; /* INSTRUKSI: Padding dalam input */
-  border: 2px solid #eee; /* INSTRUKSI: Border color default */
-  border-radius: 5px; /* INSTRUKSI: Kelengkungan sudut */
+  border: 2px solid
+    var(--card-border-color); /* INSTRUKSI: Border color default (terang/gelap) */
+  border-radius: var(
+    --border-radius-sm
+  ); /* INSTRUKSI: Kelengkungan sudut (dari var) */
   font-size: 16px; /* INSTRUKSI: Ukuran text */
-  transition: border-color 0.3s ease; /* EFEK: Smooth transition saat focus */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* EFEK: Smooth transition saat focus */
   font-family: inherit; /* EFEK: Match font dengan parent */
+  background: var(
+    --white-bg
+  ); /* INSTRUKSI: Background input (terang/gelap) */
+  color: var(
+    --body-color
+  ); /* INSTRUKSI: Warna teks input (terang/gelap) */
 }
 
-/* Focus state untuk input dan textarea */
+/* Focus state untuk input dan textarea (modern glow) */
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none; /* EFEK: Remove default outline */
-  border-color: #3498db; /* EFEK: Border berubah biru saat focus */
+  border-color: var(
+    --primary-color
+  ); /* EFEK: Border berubah biru saat focus */
+  /* IMPROVISASI: Glow effect menggunakan variabel */
+  box-shadow: 0 0 0 3px var(--shadow-color);
 }
 
 /* Textarea specific styling */
@@ -1303,23 +1499,14 @@ section {
 /* ===================================
    12. FOOTER
    =================================== 
-   
-   PENJELASAN:
-   - Footer dengan copyright dan social links
-   - Background gelap untuk kontras
-   - Sticky footer yang selalu di bawah
-   
-   INSTRUKSI KUSTOMISASI:
-   - Ganti warna background
-   - Adjust padding dan spacing
-   - Tambah content footer (links, info, dll)
 */
 
 /* Footer section */
 .footer {
-  background: #2c3e50; /* INSTRUKSI: Warna background footer (gelap) */
-  color: white; /* INSTRUKSI: Warna text */
+  background: var(--light-bg); /* INSTRUKSI: Warna background (terang/gelap) */
+  color: #e5e7eb; /* INSTRUKSI: Warna text (light grey) */
   padding: 30px 0; /* INSTRUKSI: Padding top-bottom */
+  border-top: 1px solid var(--card-border-color); /* Tambah border pemisah */
 }
 
 /* Container footer content */
@@ -1332,6 +1519,9 @@ section {
 /* Footer text/copyright */
 .footer-text p {
   margin: 0; /* EFEK: Remove default margin */
+  color: var(
+    --muted-color
+  ); /* INSTRUKSI: Warna text (terang/gelap) */
 }
 
 /* Social links di footer */
@@ -1348,26 +1538,20 @@ section {
     255,
     0.1
   ); /* INSTRUKSI: Background semi-transparan */
+  /* IMPROVISASI: Penyesuaian untuk Light Mode */
+  color: var(--muted-color);
+  background: var(--card-border-color);
 }
 
 /* Hover effect social link di footer */
 .footer-social .social-link:hover {
-  background: #3498db; /* EFEK: Background berubah biru saat hover */
+  background: var(--primary-color); /* EFEK: Background berubah Indigo saat hover */
+  color: white; /* Jaga agar ikon tetap putih saat hover */
 }
 
 /* ===================================
    13. SCROLL TO TOP BUTTON
    =================================== 
-   
-   PENJELASAN:
-   - Tombol floating untuk scroll kembali ke atas
-   - Muncul otomatis saat scroll ke bawah
-   - Fixed position di kanan bawah
-   
-   INSTRUKSI KUSTOMISASI:
-   - Ubah posisi (bottom, right)
-   - Ganti warna dan ukuran
-   - Adjust show/hide trigger point di JavaScript
 */
 
 /* Scroll to top button floating */
@@ -1377,7 +1561,11 @@ section {
   right: 30px; /* INSTRUKSI: Posisi dari kanan */
   width: 50px; /* INSTRUKSI: Ukuran button */
   height: 50px; /* INSTRUKSI: Ukuran button */
-  background: #3498db; /* INSTRUKSI: Warna background */
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  ); /* INSTRUKSI: Warna background (gradient Indigo-Teal) */
   color: white; /* INSTRUKSI: Warna icon */
   border-radius: 50%; /* EFEK: Bulat sempurna */
   display: flex;
@@ -1388,6 +1576,7 @@ section {
   visibility: hidden; /* EFEK: Not visible */
   transition: all 0.3s ease; /* EFEK: Smooth show/hide */
   z-index: 1000; /* PENJELASAN: Di atas semua elemen lain */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Tambah shadow */
 }
 
 /* Show state untuk scroll button (triggered via JavaScript) */
@@ -1398,45 +1587,349 @@ section {
 
 /* Hover effect scroll button */
 .scroll-top:hover {
-  background: #2980b9; /* EFEK: Background lebih gelap saat hover */
-  transform: translateY(-3px); /* EFEK: Naik sedikit */
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color),
+    var(--primary-color)
+  ); /* EFEK: Balik gradient saat hover */
+  transform: translateY(-5px) scale(1.1); /* EFEK: Efek hover lebih dinamis */
 }
 
 /* ===================================
+   13.5. PRELOADER (IMPROVISASI)
+   =================================== 
+*/
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  /* Menggunakan background body (terang/gelap) */
+  background: var(--white-bg);
+  z-index: 99999; /* Paling atas */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Transisi untuk fade-out */
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Class ini akan ditambahkan oleh JS saat load selesai */
+.preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Spinner animasi */
+.preloader-spinner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  /* Menggunakan warna primer (Indigo) */
+  border: 5px solid var(--primary-color);
+  /* Membuat 1/4 bagian transparan untuk efek berputar */
+  border-top-color: transparent;
+  /* Menggunakan animasi 'spin' yang sudah kita buat di script.js */
+  animation: spin 1s linear infinite;
+}
+
+/* ===================================
+   13.7. PORTFOLIO LIGHTBOX (IMPROVISASI)
+  ===================================
+*/
+.portfolio-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999; /* Di atas segalanya kecuali preloader */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  /* Kontrol visibilitas */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.portfolio-lightbox.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Backdrop gelap di belakang modal */
+.lightbox-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+/* Konten modal */
+.lightbox-content {
+  position: relative;
+  z-index: 10;
+  background: var(--light-bg); /* Background card (terang/gelap) */
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--card-border-color);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh; /* Maks tinggi 90% viewport */
+  overflow-y: auto; /* Bisa di-scroll jika konten panjang */
+  padding: 30px;
+  /* Animasi pop-up */
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.portfolio-lightbox.show .lightbox-content {
+  transform: scale(1);
+}
+
+/* Tombol Close di pojok kanan atas (Di area kosong) */
+/* Tombol Close (X) - Versi Anti Gagal */
+.lightbox-close {
+  /* === POSISI & LAYER === */
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 99999;
+  
+  /* === BENTUK & WARNA === */
+  width: 45px;
+  height: 45px;
+  border-radius: 50% !important;
+  background-color: #ff4d4d !important; 
+  border: 2px solid #ffffff; 
+  color: white !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+  /* === PENGATURAN POSISI X === */
+  display: flex;
+  align-items: center;     
+  justify-content: center; 
+  
+  /* Reset Padding agar netral */
+  padding: 0;
+  margin: 0;
+  
+  /* KOREKSI MANUAL: Dorong X ke bawah sedikit */
+  padding-top: 3px; /* <-- Ini kuncinya supaya X turun ke tengah */
+  
+  /* Font setting */
+  font-family: Arial, sans-serif; 
+  font-weight: 400;       
+  font-size: 28px;        
+  line-height: 1;         
+  
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+  background-color: #ff0000 !important; 
+  transform: scale(1.1) rotate(90deg);    
+}
+
+/* Gambar di modal */
+.lightbox-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 20px;
+}
+
+/* Judul di modal */
+.lightbox-title {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+/* Deskripsi di modal */
+.lightbox-description {
+  color: var(--body-color);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* Tech tags di modal (menggunakan style .portfolio-tech) */
+.lightbox-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+/* Tombol link di modal */
+.lightbox-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Mengganti .btn-secondary agar terlihat bagus di modal */
+.lightbox-links .btn-secondary {
+  background: var(--card-border-color);
+  color: var(--text-color);
+  border-color: var(--card-border-color);
+}
+.lightbox-links .btn-secondary:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* ===================================
+   13.8. STYLE UNTUK LIGHTBOX & KARTU BARU
+   ===================================
+*/
+
+/* PERBAIKAN: 
+  Mengganti ID dengan class agar bisa dipakai ulang.
+  Sekarang .portfolio-lightbox adalah class umum.
+*/
+.portfolio-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.portfolio-lightbox.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Style backdrop dipakai oleh kedua lightbox */
+.lightbox-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+/* Style konten dipakai oleh kedua lightbox */
+.lightbox-content {
+  position: relative;
+  z-index: 10;
+  background: var(--light-bg);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--card-border-color);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 30px;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.portfolio-lightbox.show .lightbox-content {
+  transform: scale(1);
+}
+
+/* Style tombol close dipakai oleh kedua lightbox */
+.lightbox-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: var(--muted-color);
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.lightbox-close:hover {
+  color: var(--primary-color);
+  transform: rotate(90deg);
+}
+
+/* BARU: 
+  Style untuk kartu di section Achievement agar terlihat bisa diklik.
+  (Kita juga ganti .education-card jadi <button> di HTML)
+*/
+.education-card.clickable-card {
+  /* Reset style <button> */
+  border: 1px solid var(--card-border-color);
+  background: var(--light-bg);
+  padding: 30px;
+  margin: 0; /* Reset margin button */
+  font-family: inherit; /* Pakai font dari body */
+  text-align: left; /* Konten rata kiri */
+  width: 100%; /* Button jadi full width */
+  cursor: pointer; /* Tanda bisa diklik */
+  
+  /* Pastikan icon tidak mewarisi warna aneh dari button */
+  color: var(--body-color); 
+}
+
+.education-card.clickable-card .education-info h3 {
+  color: var(--text-color);
+}
+.education-card.clickable-card .education-info h4 {
+  color: var(--primary-color);
+}
+.education-card.clickable-card .education-icon {
+   color: white; /* Jaga agar icon (trophy, dll) tetap putih */
+}
+
+
+/* BARU: Style untuk gambar di Lightbox Achievement */
+.lightbox-image-full {
+  width: 100%;
+  max-height: 60vh; /* Batasi tinggi gambar */
+  object-fit: contain; /* Tampilkan seluruh gambar, jangan terpotong */
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 20px;
+  background-color: var(--card-border-color); /* Latar belakang jika gambar transparan */
+}
+/* ===================================
    14. RESPONSIVE DESIGN
    =================================== 
-   
-   PENJELASAN:
-   - Media queries untuk berbagai ukuran layar
-   - Breakpoint: 768px (tablet), 480px (mobile)
-   - Mobile-first approach
-   - Adjust layout, spacing, font size
-   
-   INSTRUKSI KUSTOMISASI:
-   - Tambah breakpoint baru jika perlu
-   - Adjust nilai untuk device berbeda
-   - Test di berbagai ukuran layar
-   
-   TIPS:
-   - 768px = Tablet landscape dan di bawahnya
-   - 480px = Mobile portrait
-   - Gunakan Chrome DevTools untuk testing
 */
 
 /* ========== TABLET STYLES (768px dan di bawahnya) ========== */
 @media screen and (max-width: 768px) {
+  
   /* NAVIGATION - Mobile menu */
   .nav-menu {
     position: fixed; /* EFEK: Fixed positioning untuk mobile menu */
     left: -100%; /* PENJELASAN: Initial off-screen kiri */
     top: 70px; /* INSTRUKSI: Di bawah navbar */
     flex-direction: column; /* EFEK: Vertical layout untuk mobile */
-    background-color: white; /* INSTRUKSI: Background menu */
+    /* IMPROVISASI: Menggunakan variabel agar tema berubah */
+    background-color: var(
+      --white-bg 
+    ); 
     width: 100%; /* EFEK: Full width screen */
     text-align: center; /* EFEK: Center alignment */
     transition: 0.3s; /* EFEK: Smooth slide animation */
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05); /* EFEK: Shadow untuk depth */
     padding: 20px 0;
+    border-top: 1px solid var(--card-border-color); /* Border pemisah */
   }
 
   /* Active state - menu slide in dari kiri */
@@ -1467,6 +1960,14 @@ section {
     grid-template-columns: 1fr; /* EFEK: Stack vertikal (image di atas, text di bawah) */
     text-align: center; /* EFEK: Center alignment untuk mobile */
     gap: 30px; /* INSTRUKSI: Jarak lebih kecil untuk mobile */
+    padding-top: 80px; /* EFEK: Jarak dari navbar */
+  }
+
+  .hero-content {
+    order: 2; /* Teks di bawah foto */
+  }
+  .hero-image {
+    order: 1; /* Foto di atas teks */
   }
 
   /* Hero title lebih kecil */
@@ -1516,6 +2017,14 @@ section {
   .timeline-item::before {
     left: 1px; /* INSTRUKSI: Match dengan line position */
   }
+
+  /* IMPROVISASI: Lightbox di mobile */
+  .lightbox-content {
+    padding: 20px;
+  }
+  .lightbox-title {
+    font-size: 1.5rem;
+  }
 }
 
 /* ========== MOBILE STYLES (480px dan di bawahnya) ========== */
@@ -1562,16 +2071,6 @@ section {
     height: 200px; /* INSTRUKSI: Match width */
   }
 
-  /* Portfolio grid 1 kolom */
-  .portfolio-grid {
-    grid-template-columns: 1fr; /* EFEK: Single column untuk mobile */
-  }
-
-  /* Skills grid 1 kolom */
-  .skills-grid {
-    grid-template-columns: 1fr; /* EFEK: Single column untuk mobile */
-  }
-
   /* Portfolio filters wrap */
   .portfolio-filters {
     flex-wrap: wrap; /* EFEK: Wrap buttons ke baris baru */
@@ -1599,58 +2098,133 @@ section {
   /* Education card responsive */
   .education-card {
     flex-direction: column; /* EFEK: Stack icon dan info vertikal */
-    text-align: center; /* EFEK: Center text */
+    /* text-align: center; */ /* DIHAPUS: Ini yang membuat teks berantakan */
   }
 
   .education-icon {
-    margin: 0 auto; /* EFEK: Center icon */
+    margin: 0 auto; /* EFEK: Center icon (Biarkan yang ini) */
   }
 
   .education-info p {
-    justify-content: center; /* EFEK: Center icon dan text */
+    /* justify-content: center; */ /* DIHAPUS: Ini juga membuat ikon & teks di p rata tengah */
+  }
+
+  /* IMPROVISASI: Lightbox links di mobile */
+  .lightbox-links .btn {
+    width: 100%; /* Tombol full width di modal */
   }
 }
 
 /* ===================================
    END OF STYLESHEET
    ===================================
-   
-   CATATAN PENTING:
-   ✅ Semua styling sudah dilengkapi dengan comment detail
-   ✅ INSTRUKSI menandai nilai yang bisa dikustomisasi
-   ✅ PENJELASAN untuk memahami konsep CSS
-   ✅ EFEK untuk menjelaskan visual result
-   ✅ TIPS untuk best practices
-   
-   CARA KUSTOMISASI:
-   1. Cari comment "INSTRUKSI:" untuk tahu apa yang bisa diubah
-   2. Setiap warna, ukuran, spacing ada penjelasannya
-   3. Line numbers disebutkan untuk cross-reference
-   4. Gunakan Chrome DevTools untuk live preview changes
-   
-   STRUKTUR FILE:
-   1. Reset & Base Styles (line ~40-150)
-   2. Navigation (line ~150-200)
-   3. Hero Section (line ~200-370)
-   4. Button Styles (line ~370-420)
-   5. Section General (line ~420-470)
-   6. About Section (line ~470-560)
-   7. Skills Section (line ~560-700)
-   8. Portfolio Section (line ~700-870)
-   9. Experience Section (line ~870-1000)
-   10. Contact Section (line ~1000-1120)
-   11. Footer (line ~1120-1160)
-   12. Scroll to Top (line ~1160-1190)
-   13. Responsive Design (line ~1190-end)
-   
-   TESTING:
-   - Test di Chrome DevTools responsive mode
-   - Check breakpoints: Desktop (>768px), Tablet (768px), Mobile (480px)
-   - Validate dengan W3C CSS Validator
-   - Test hover effects dan transitions
-   
-   SUPPORT FILES:
-   - index.html (Structure dengan instruction comments)
-   - script.js (Functionality dengan instruction comments)
-   - README.md (Project documentation)
 */
+
+/* ===================================
+   15. KEYFRAMES (IMPROVED!)
+   ===================================
+*/
+
+/* Animasi untuk Foto Profil (Mengambang) */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px); /* Naik 15px */
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Animasi untuk Blob 1 (Bergerak & Pudar) */
+@keyframes moveBlob1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(50px, -80px) scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+}
+
+/* Animasi untuk Blob 2 (Bergerak & Pudar) */
+@keyframes moveBlob2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(-40px, 60px) scale(0.9);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+}
+
+/* ===================================
+   16. STYLE UNTUK LIGHTBOX SLIDER (BARU)
+   ===================================
+*/
+
+.lightbox-slider-container {
+  /* PENTING: Memberi jarak 60px di atas gambar untuk tempat tombol */
+  margin-top: 60px; 
+  
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: var(--border-radius-sm);
+  background: var(--card-border-color);
+}
+
+/* Gambar di lightbox, tambahkan transisi opacity */
+.lightbox-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-sm);
+  display: block;
+  transition: opacity 0.3s ease-in-out; /* Transisi fade */
+}
+
+/* Tombol slider (Prev & Next) */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, opacity 0.3s ease;
+  opacity: 0.7;
+}
+
+.slider-btn:hover {
+  background: var(--primary-color);
+  opacity: 1;
+}
+
+.slider-btn.prev {
+  left: 10px;
+}
+
+.slider-btn.next {
+  right: 10px;
+}
