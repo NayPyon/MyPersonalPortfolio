@@ -49,7 +49,7 @@
     "descriptionCard": "A responsive single-page portfolio built from scratch to showcase my skills, projects, and professional background.",
     "descriptionModal": "Developed this personal portfolio website from scratch to serve as a dynamic hub for my professional profile. It is a fully responsive single-page application built with modern HTML, CSS, and Vanilla JavaScript (ES6+). Key features include: dynamic project loading via `fetch` from a JSON file, a theme toggle (dark/light mode) with `localStorage`, and an efficient `IntersectionObserver` to trigger on-scroll animations.",
     "tech": ["HTML", "CSS", "JavaScript"],
-    "githubLink": "[Link GitHub Proyek CV Anda]",
+    "githubLink": "https://github.com/NayPyon/MyPersonalPortfolio.git",
     "liveLink": "#"
   }
 ]
