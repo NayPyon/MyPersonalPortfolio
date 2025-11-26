@@ -701,7 +701,7 @@ function scrollToSection(sectionId) {
 }
 
 function downloadCV() {
-  const cvUrl = "Nayaka Alkaesyah Suryanto-resume-1.pdf";
+  const cvUrl = "assets/Nayaka Alkaesyah Suryanto-resume.pdf";
   const link = document.createElement("a");
   link.href = cvUrl;
   link.download = "CV_Nayaka_Alkaesyah_Suryanto.pdf";
