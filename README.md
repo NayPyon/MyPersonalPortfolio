@@ -4,7 +4,7 @@
 
 This is my personal portfolio website, built from scratch to showcase my projects, skills, and professional background. It is designed to be dynamic, responsive, and easy to update.
 
-**[View Live Demo](https://NayPyon.github.io)**
+**[View Live Demo](https://nayakawebcv.gt.tc)**
 
 ---
 
@@ -35,7 +35,7 @@ To run a local copy of this project:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/NayPyon/MyPersonalPortfolio.git
+    https://github.com/NayPyon/MyPersonalPortfolio.git
     ```
 
 2.  **Open the file:**
@@ -48,5 +48,5 @@ To run a local copy of this project:
 ## 👤 Author
 
 * **Nayaka Alkaesyah Suryanto**
-* **GitHub:** https://github.com/NayPyon
-* **LinkedIn:** https://www.linkedin.com/in/nayakaalkaesyahsuryanto/
+* **GitHub:** [@NayPyon](https://github.com/NayPyon)
+* **LinkedIn:** [in/nayakaalkaesyahsuryanto](https://www.linkedin.com/in/nayakaalkaesyahsuryanto/)
